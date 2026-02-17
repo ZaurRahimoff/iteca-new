@@ -1,0 +1,59 @@
+extends ../layouts/default
+
+include ../mixins/_title
+include ../mixins/_pagination
+
+block variables
+  - var pageTitle = 'We are in media - CEO'
+  - var pageDescription = 'Caspian Event Organisers in media. Read about our exhibitions, conferences, and events in press coverage and news publications.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.media-hero
+    .container
+      .media-hero__content
+        +title('We are in media', 'h1')
+
+  // Media Articles Grid Section
+  section.media-section
+    .container
+      .row.row-cols-1.row-cols-md-3.row-cols-lg-4.g-4
+        // Article Card 1
+        .col
+          article.media-card.card.h-100.border-0
+            a.media-link(href="#" aria-label="Read article about Farid Mammadov KOBIA meeting")
+              img(src="assets/img/webp/media1.webp" alt="Farid Mammadov KOBIA meeting news 2024" loading="lazy")
+
+        // Article Card 2
+        .col
+          article.media-card.card.h-100.border-0
+            a.media-link(href="#" aria-label="Read article about COP29")
+              img(src="assets/img/webp/media2.webp" alt="COP29 Exhibition in Baku" loading="lazy")
+
+        // Article Card 3
+        .col
+          article.media-card.card.h-100.border-0
+            a.media-link(href="#" aria-label="Read article about Caspian Event Organisers")
+              img(src="assets/img/webp/media3.webp" alt="Caspian Event Organisers exhibition" loading="lazy")
+
+        // Article Card 4
+        .col
+          article.media-card.card.h-100.border-0
+            a.media-link(href="#" aria-label="Read article from minval.az")
+              img(src="assets/img/webp/media4.webp" alt="Conference speaker at CEO event" loading="lazy")
+
+        // Article Card 5
+        .col
+          article.media-card.card.h-100.border-0
+            a.media-link(href="#" aria-label="Read article from Euronews")
+              img(src="assets/img/webp/media5.webp" alt="Farid Mammadov Euronews BEW 2024" loading="lazy")
+
+        // Article Card 6
+        .col
+          article.media-card.card.h-100.border-0
+            a.media-link(href="#" aria-label="Read article from Caliber")
+              img(src="assets/img/webp/media1.webp" alt="Caliber Azerbaijan military innovation ADEX" loading="lazy")
+
+      // Pagination
+      +pagination({ currentPage: 1, totalPages: 10, prevText: 'Əvvəl', nextText: 'Sonra' })

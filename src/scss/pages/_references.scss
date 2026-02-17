@@ -1,0 +1,180 @@
+// References Page Styles
+// Страница отзывов и референсов
+
+// Hero Section
+.ref-hero {
+  padding: 25px 0 50px;
+
+  @include lg-down {
+    padding: 20px 0 30px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// References Section
+.ref-section {
+  padding: 0 0 50px;
+
+  @include lg-down {
+    padding: 0 0 30px;
+  }
+}
+
+// Reference Card (Quote Card)
+.ref-card {
+  background-color: transparent;
+  border: none;
+  transition: var(--transition-base);
+
+  // Quote Section
+  .card__quote {
+    display: flex;
+    align-items: center;
+    height: 39px;
+
+    &-icon {
+      font-family: var(--font-family);
+      font-size: 40px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--primary);
+      line-height: normal;
+    }
+  }
+
+  // Body with text
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card);
+    border-radius: 8px;
+    padding: 20px;
+    // gap: 20px;
+
+    @include lg-down {
+      // gap: 16px;
+      padding: 16px;
+    }
+  }
+
+  .card__text {
+    font-family: var(--font-family);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-regular);
+    color: var(--text-2);
+    line-height: normal;
+    margin: 0;
+    white-space: pre-wrap;
+
+    @include lg-down {
+      font-size: var(--font-size-title-mobile);
+    }
+  }
+
+  // Footer with author info
+  .card-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: transparent;
+    border: none;
+    padding: 20px 0 0;
+  }
+
+  .card__author-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .card__author {
+    font-family: var(--font-family);
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-bold);
+    color: var(--text);
+    line-height: normal;
+    margin: 0;
+
+    @include lg-down {
+      font-size: var(--font-size-h3-mobile);
+    }
+  }
+
+  .card__position {
+    font-family: var(--font-family);
+    font-size: var(--font-size-h6);
+    font-weight: var(--font-weight-medium);
+    color: var(--primary);
+    line-height: normal;
+    margin: 0;
+
+    @include lg-down {
+      font-size: var(--font-size-h5-mobile);
+    }
+  }
+
+  .card__year {
+    font-family: var(--font-family);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-regular);
+    color: var(--primary);
+    line-height: normal;
+    text-align: right;
+    margin: 0;
+
+    @include lg-down {
+      font-size: var(--font-size-title-mobile);
+    }
+  }
+}
+
+// Action Section (Show All Button)
+.ref-action {
+  padding: 0 0 100px;
+
+  @include lg-down {
+    padding: 0 0 50px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-family);
+    font-size: var(--font-size-title1);
+    font-weight: var(--font-weight-regular);
+    line-height: normal;
+    cursor: pointer;
+    transition: var(--transition-base);
+
+    i {
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    &:hover {
+      background-color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}

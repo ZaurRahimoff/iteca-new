@@ -1,0 +1,75 @@
+extends ../layouts/default
+
+include ../mixins/_title
+include ../mixins/_pagination
+
+block variables
+  - var pageTitle = 'Newspaper - CEO'
+  - var pageDescription = 'Newspaper publications and exhibition bulletins from Caspian Event Organisers (CEO). Download our exhibition news and industry updates.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.newspaper-hero
+    .container
+      .newspaper-hero__content
+        +title('Newspaper', 'h1')
+
+  // Newspaper Cards Grid Section
+  section.newspaper-section
+    .container
+      .row.g-4
+        // Row 1
+        .col-12.col-md-6.col-lg-3
+          article.paper-card.card.h-100.border-0
+            a.paper-link(href="#" aria-label="Download Adex newspaper")
+            .paper-image
+              img.card-img(src="assets/img/webp/newspaper1.webp" alt="Adex Exhibition News" loading="lazy")
+            .paper-content.card-body
+              h3.paper-title Adex
+              a.paper-download(href="#" aria-label="Download Adex newspaper")
+                i.fas.fa-arrow-down-long-to-line
+        
+        .col-12.col-md-6.col-lg-3
+          article.paper-card.card.h-100.border-0
+            a.paper-link(href="#" aria-label="Download Caspian Agro newspaper")
+            .paper-image
+              img.card-img(src="assets/img/webp/newspaper2.webp" alt="Caspian Agro Exhibition News" loading="lazy")
+            .paper-content.card-body
+              h3.paper-title Caspian Agro
+              a.paper-download(href="#" aria-label="Download Caspian Agro newspaper")
+                i.fas.fa-arrow-down-long-to-line
+        
+        .col-12.col-md-6.col-lg-3
+          article.paper-card.card.h-100.border-0
+            a.paper-link(href="#" aria-label="Download Bakutel newspaper")
+            .paper-image
+              img.card-img(src="assets/img/webp/newspaper3.webp" alt="Bakutel Exhibition News" loading="lazy")
+            .paper-content.card-body
+              h3.paper-title Bakutel
+              a.paper-download(href="#" aria-label="Download Bakutel newspaper")
+                i.fas.fa-arrow-down-long-to-line
+        
+        .col-12.col-md-6.col-lg-3
+          article.paper-card.card.h-100.border-0
+            a.paper-link(href="#" aria-label="Download Caspian Mebelexpo newspaper")
+            .paper-image
+              img.card-img(src="assets/img/webp/newspaper4.webp" alt="Caspian Mebelexpo Exhibition News" loading="lazy")
+            .paper-content.card-body
+              h3.paper-title Caspian Mebelexpo
+              a.paper-download(href="#" aria-label="Download Caspian Mebelexpo newspaper")
+                i.fas.fa-arrow-down-long-to-line
+
+
+  // Pagination Section
+  section.pb-4.pb-md-5
+    .container
+      .row
+        .col-12
+          +pagination({
+            currentPage: 1,
+            totalPages: 10,
+            prevText: 'Əvvəl',
+            nextText: 'Sonra',
+            showDivider: false
+          })

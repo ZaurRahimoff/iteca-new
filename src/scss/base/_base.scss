@@ -1,0 +1,102 @@
+// Base styles
+@import '../variables/colors';
+@import '../variables/typography';
+@import '../variables/variables';
+@import '../mixins/media';
+
+// Reset box-sizing globally
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; // Base font size for rem calculations
+}
+
+body {
+  font-family: $font-family;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed; // 1.4 из Figma
+  background: transparent;
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Typography - exact from Figma UI Kit
+h1 {
+  font-size: $font-size-h1;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-relaxed; // 1.4 из Figma
+  margin: 0;
+}
+
+h2 {
+  font-size: $font-size-h2;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+h3 {
+  font-size: $font-size-h3;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+h4 {
+  font-size: $font-size-h4;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+h5 {
+  font-size: $font-size-h5;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+h6 {
+  font-size: $font-size-h6;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+p {
+  font-size: $font-size-body2;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+// Main container - for absolute positioning
+main.main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  @include lg-down {
+    min-height: auto;
+  }
+}
+
+// Container - exact from Figma (1440px - 150px padding on each side = 1140px)
+.container-xl {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @include lg-down {
+    padding: 0 16px; // Mobile padding from Figma
+  }
+}

@@ -1,0 +1,201 @@
+extends ../layouts/default
+
+include ../mixins/_title
+include ../mixins/_pagination
+
+block variables
+  - var pageTitle = 'News - CEO'
+  - var pageDescription = 'Latest news and updates from Caspian Event Organisers (CEO). Stay informed about our exhibitions, conferences, and industry events.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.news-hero
+    .container
+      .news-hero__content
+        +title('News', 'h1')
+
+  // News List Section
+  section.news-section
+    .container
+      .row.g-4.news-list
+        // Row 1
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news1.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news2.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news3.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news4.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+
+        // Row 2
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news5.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news1.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news2.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news3.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+
+        // Row 3
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news4.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news5.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news1.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news2.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+
+        // Row 4
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news3.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news4.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news5.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+        .col-12.col-sm-6.col-lg-3
+          article.news-card
+            a.news-card__link(href="news-details.html" aria-label="Read more about China-Azerbaijan: A New Impulse")
+            .news-card__image
+              img(src="assets/img/webp/news1.webp" alt="China-Azerbaijan: A New Impulse" loading="lazy")
+            .news-card__content
+              h3.news-card__title China-Azerbaijan: A New Impulse
+              .news-card__date
+                i.fal.fa-calendar
+                time(datetime="2024-08-27") 27 August, 2024
+
+  // Pagination Section
+  section.pb-4.pb-md-5
+    .container
+      .row
+        .col-12
+          +pagination({
+            currentPage: 1,
+            totalPages: 10,
+            prevText: 'Əvvəl',
+            nextText: 'Sonra',
+            showDivider: false
+          })

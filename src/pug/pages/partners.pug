@@ -1,0 +1,115 @@
+extends ../layouts/default
+
+include ../mixins/_title
+
+block variables
+  - var pageTitle = 'Partners - CEO'
+  - var pageDescription = 'Official partners and collaborators of Caspian Event Organisers (CEO). Explore our network of trusted partners and business relationships.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.partners-hero
+    .container
+      .partners-hero__content
+        +title('Partners', 'h1')
+
+  // Partners Grid Section
+  section.partners-section
+    .container
+      .row.row-cols-2.row-cols-md-3.row-cols-lg-4.g-4
+        // Partner Card 1
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 1")
+              .partners-image
+                img(src="assets/img/webp/partner1.webp" alt="Partner 1" loading="lazy")
+            h3.partners-title Insurance partner
+        
+        // Partner Card 2
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 2")
+              .partners-image
+                img(src="assets/img/webp/partner2.webp" alt="Partner 2" loading="lazy")
+            h3.partners-title Strategic partner
+        
+        // Partner Card 3
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 3")
+              .partners-image
+                img(src="assets/img/webp/partner3.webp" alt="Partner 3" loading="lazy")
+            h3.partners-title Technology partner
+        
+        // Partner Card 4
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 4")
+              .partners-image
+                img(src="assets/img/webp/partner4.webp" alt="Partner 4" loading="lazy")
+            h3.partners-title Media partner
+        
+        // Partner Card 5
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 5")
+              .partners-image
+                img(src="assets/img/webp/partner5.webp" alt="Partner 5" loading="lazy")
+            h3.partners-title Business partner
+        
+        // Partner Card 6
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 6")
+              .partners-image
+                img(src="assets/img/webp/partner1.webp" alt="Partner 6" loading="lazy")
+            h3.partners-title Insurance partner
+        
+        // Partner Card 7
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 7")
+              .partners-image
+                img(src="assets/img/webp/partner2.webp" alt="Partner 7" loading="lazy")
+            h3.partners-title Strategic partner
+        
+        // Partner Card 8
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 8")
+              .partners-image
+                img(src="assets/img/webp/partner3.webp" alt="Partner 8" loading="lazy")
+            h3.partners-title Technology partner
+        
+        // Partner Card 9
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 9")
+              .partners-image
+                img(src="assets/img/webp/partner4.webp" alt="Partner 9" loading="lazy")
+            h3.partners-title Media partner
+        
+        // Partner Card 10
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 10")
+              .partners-image
+                img(src="assets/img/webp/partner5.webp" alt="Partner 10" loading="lazy")
+            h3.partners-title Business partner
+        
+        // Partner Card 11
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 11")
+              .partners-image
+                img(src="assets/img/webp/partner1.webp" alt="Partner 11" loading="lazy")
+            h3.partners-title Insurance partner
+        
+        // Partner Card 12
+        .col
+          article.partners-card.card.h-100.border-0
+            a.partners-link(href="#" aria-label="Partner 12")
+              .partners-image
+                img(src="assets/img/webp/partner2.webp" alt="Partner 12" loading="lazy")
+            h3.partners-title Strategic partner

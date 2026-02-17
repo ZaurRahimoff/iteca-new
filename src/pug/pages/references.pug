@@ -1,0 +1,95 @@
+extends ../layouts/default
+
+include ../mixins/_title
+
+block variables
+  - var pageTitle = 'References - CEO'
+  - var pageDescription = 'References and testimonials from government officials and partners about Caspian Event Organisers exhibitions and events.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.ref-hero
+    .container
+      .ref-hero__content
+        +title('References', 'h1')
+
+  // References Cards Section
+  section.ref-section
+    .container
+      .row.g-4.ref-list
+        // Reference Card 1
+        .col-12
+          article.card.ref-card
+            .card-body
+              .card__quote
+                span.card__quote-icon &#8220; 
+              .card__text It can be confidently stated that the ADEX exhibition, now in its fifth edition, will once again be conducted to the highest standards, as in previous years. The defence industry holds substantial potential for reducing carbon emissions, and I believe that ADEX 2024, taking place ahead of COP29, offers an ideal platform for professional discussions on this topic.
+                br
+                br
+                | ADEX plays a unique role in fostering business relationships between prominent military-industrial enterprises, as well as leading international companies from allied and friendly countries. This exhibition provides extensive opportunities to explore the latest advancements in modern defence technologies and military equipment available for export on the global arms market, and to establish new agreements in the realm of international military-technical cooperation. Hundreds of world-renowned companies showcase their products at this event. ADEX is a significant occasion for countries to strengthen their defence industries, enhance production capabilities, implement modern and innovative tools, and exchange valuable experiences.
+            .card-footer
+              .card__author-info
+                h3.card__author Ilham Aliyev
+                p.card__position The President of the Republic of Azerbaijan
+              p.card__year 2024
+
+        // Reference Card 2
+        .col-12
+          article.card.ref-card
+            .card-body
+              .card__quote
+                span.card__quote-icon &#8220; 
+              p.card__text This year's exhibition is abundant in innovations, both in terms of its content and participants. The exhibition coincides with the "Year of Solidarity for a Green World" as well as the COP29 international event. The "Rebuild Karabakh" exhibition shares a common goal with this prestigious event: cooperation for sustainable development. The exhibits and discussion topics presented at the exhibition cover restoration and reconstruction efforts, solidarity, and environmental sustainability.
+            .card-footer
+              .card__author-info
+                h3.card__author Ilham Aliyev
+                p.card__position The President of the Republic of Azerbaijan
+              p.card__year 2024
+
+        // Reference Card 3
+        .col-12
+          article.card.ref-card
+            .card-body
+              .card__quote
+                span.card__quote-icon &#8220; 
+              p.card__text Today, the samples of weapons and equipment presented by the Republic of Azerbaijan at the ADEX 2024 exhibition are an indicator of the level of development of the scientific, technical, and industrial potential of our state. The presented weapons and equipment were also successfully tested during the 44-day Patriotic War. The ADEX exhibition is an ideal platform for large-scale demonstration of the latest achievements of the defence industrial complex of Azerbaijani and world companies, the exchange of experience between national and foreign specialists, and the creation of effective ties. I consider the holding of this exhibition an important event for the defence industry sector of the economy.
+            .card-footer
+              .card__author-info
+                h3.card__author Zakir Hasanov
+                p.card__position Colonel General Minister of Defence of the Republic of Azerbaijan
+              p.card__year 2024
+
+        // Reference Card 4 - Test (will be hidden by default)
+        .col-12
+          article.card.ref-card
+            .card-body
+              .card__quote
+                span.card__quote-icon &#8220;
+              p.card__text This is a test reference card to demonstrate the Load More functionality. This card should be hidden by default and only shown when the "Show all" button is clicked.
+            .card-footer
+              .card__author-info
+                h3.card__author Test Author 1
+                p.card__position Test Position
+              p.card__year 2024
+
+        // Reference Card 5 - Test (will be hidden by default)
+        .col-12
+          article.card.ref-card
+            .card-body
+              .card__quote
+                span.card__quote-icon &#8220;
+              p.card__text Another test reference card to demonstrate the Load More functionality with multiple hidden cards. Click the button below to reveal all hidden references.
+            .card-footer
+              .card__author-info
+                h3.card__author Test Author 2
+                p.card__position Another Test Position
+              p.card__year 2024
+
+  // Show All Button Section
+  section.ref-action
+    .container
+      .ref-action__wrapper
+        button.ref-action__btn(type="button" aria-label="Show all references")
+          span Show all
+          i.fas.fa-caret-down

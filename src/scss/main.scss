@@ -1,0 +1,57 @@
+// Main stylesheet file
+// Automatically imports all components and modules
+
+// Variables
+@import "variables/colors";
+@import "variables/typography";
+@import "variables/variables";
+
+// Mixins
+@import "mixins/font-face";
+@import "mixins/media";
+@import "mixins/utilities";
+@import "mixins/colors";
+
+// Generate CSS variables from SCSS variables
+@include generate-color-variables();
+@include generate-typography-variables();
+@include generate-variables();
+
+// Base styles
+@import "base/fonts";
+@import "base/reset";
+// @import 'base/_base';
+
+// Components
+@import "components/button";
+@import "components/header";
+@import "components/navbar";
+@import "components/hero-slider";
+@import "components/title";
+@import "components/footer";
+@import "components/statistics";
+@import "components/exhibition-card";
+@import "components/news-card";
+@import "components/partner-card";
+@import "components/testimonial-card";
+@import "components/year-select";
+@import "components/form";
+@import "components/pagination";
+@import "components/content";
+@import "components/social-sidebar";
+@import "components/contact-item";
+
+// Pages
+@import "pages/index";
+@import "pages/about-company";
+@import "pages/news";
+@import "pages/news-details";
+@import "pages/media";
+@import "pages/partners";
+@import "pages/sponsors";
+@import "pages/references";
+@import "pages/photo-gallery";
+@import "pages/photo-albums";
+@import "pages/newspaper";
+@import "pages/career";
+@import "pages/form";

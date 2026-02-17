@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+// Sprite SCSS Template
+// Автоматически генерируется из SVG файлов
+
+$sprite-url: '../icons/sprite.svg' !default;
+
+@mixin sprite($name) {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url($sprite-url);
+  background-repeat: no-repeat;
+  background-size: contain;
+}

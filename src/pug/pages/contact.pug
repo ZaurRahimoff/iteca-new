@@ -1,0 +1,56 @@
+extends ../layouts/default
+
+include ../mixins/_title
+include ../mixins/_contact-item
+
+block variables
+  - var pageTitle = 'Contact - CEO'
+  - var pageDescription = 'Contact information for Caspian Event Organisers (CEO). Get in touch with us for inquiries and collaborations.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title and Filter
+  section.photo-albums-hero
+    .container
+      .photo-albums-hero__content
+        .photo-albums-hero__header
+          +title('Contacts', 'h1')
+
+  // Contact Section
+  section.contact-section
+    .container
+      .contact
+        .row
+          .col-12.col-md-7
+            .contact__map
+              iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d803.9544405133813!2d49.854827699999994!3d40.412827799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6d96a7a0e5%3A0xe466794cc2f694fc!2sCaspian%20Event%20Organisers%20(CEO)!5e1!3m2!1sru!2saz!4v1769457051983!5m2!1sru!2saz" width="700" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+              .contact__address-card
+                .contact__address-icon
+                  i.fal.fa-map-marker-alt
+                .contact__address-content
+                  h4.contact__address-title Office address
+                  p.contact__address-text Azerbaijan, Baku, Narimanov dist., 61, Zaur Nudiraliyev st.
+          .col-12.col-md-5
+            .row.g-4
+              .col-12.col-md-12
+                +contact-item({
+                  icon: 'fal fa-clock',
+                  title: 'Office hours',
+                  value: 'Monday - Friday (09:00 - 18:00)'
+                })
+              .col-12.col-md-12  
+                +contact-item({
+                  icon: 'fal fa-envelope',
+                  title: 'Email',
+                  value: 'reception@iteca.az',
+                  link: 'mailto:reception@iteca.az'
+                })
+              .col-12.col-md-12
+                +contact-item({
+                  icon: 'fal fa-phone',
+                  title: 'Phone number',
+                  value: [
+                    { text: '+994 12 404 10 00', link: 'tel:+994 12 404 10 00' },
+                    { text: '+994 55 224 10 00', link: 'tel:+994 55 224 10 00' }
+                  ]
+                })

@@ -1,0 +1,6 @@
+# Игнорировать файлы
+*.map
+node_modules/
+dist/
+.cache/
+

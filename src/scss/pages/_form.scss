@@ -1,0 +1,167 @@
+// Form Page Styles
+// Страница формы запроса услуг
+
+// Hero Section
+.form-hero {
+  padding: 25px 0 50px;
+
+  @media (max-width: 768px) {
+    padding: 20px 0 30px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// Form Section
+.form-section {
+  padding: 0 0 100px;
+
+  @media (max-width: 768px) {
+    padding: 0 0 50px;
+  }
+}
+
+// Form Note (Required fields)
+.form-note {
+  font-family: var(--font-family);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-medium);
+  color: var(--gray);
+  text-align: left;
+  margin-bottom: 30px;
+  line-height: 1.5;
+
+  @media (max-width: 768px) {
+    font-size: var(--font-size-title-mobile);
+    margin-bottom: 20px;
+  }
+
+  &__required {
+    color: var(--primary);
+  }
+}
+
+// Form Container
+.form-request {
+  background-color: var(--card);
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  @media (max-width: 768px) {
+    padding: 20px 16px;
+  }
+}
+
+// Form Accordion (Event Type)
+.form-accordion {
+  &__item {
+    &.accordion-item {
+      background-color: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: none;
+      margin-bottom: 0;
+
+      @media (max-width: 768px) {
+        border-radius: 8px;
+      }
+    }
+
+    .accordion-button {
+      background-color: transparent;
+      border: none;
+      box-shadow: none !important;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      border-radius: 12px;
+
+      @media (max-width: 768px) {
+        padding: 12px 16px;
+        border-radius: 8px;
+      }
+
+      &:not(.collapsed) {
+        background-color: transparent;
+        color: inherit;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        .form-accordion__icon {
+          transform: rotate(180deg);
+        }
+      }
+
+      &::after {
+        display: none;
+      }
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      &:focus {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+
+    .accordion-body {
+      padding: 15px 20px 20px 20px;
+      border-top: 1px solid var(--line);
+
+      @media (max-width: 768px) {
+        padding: 12px 16px 16px 16px;
+      }
+    }
+  }
+
+  &__title {
+    font-family: var(--font-family);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text);
+    line-height: 1.5;
+    flex: 1;
+    text-align: left;
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-title-mobile);
+    }
+  }
+
+  &__icon {
+    font-size: 12px;
+    color: var(--primary);
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+}
+
+// // Form Button
+// .form-btn {
+//   width: 100%;
+//   padding: 15px 20px;
+//   font-size: var(--font-size-h6);
+//   font-weight: var(--font-weight-bold);
+//   text-transform: uppercase;
+//   border-radius: 8px;
+//   transition: var(--transition-base);
+
+//   @media (max-width: 768px) {
+//     font-size: var(--font-size-h6-mobile);
+//     padding: 12px 16px;
+//   }
+
+//   &:hover {
+//     transform: translateY(-2px);
+//     box-shadow: 0 4px 12px rgba(228, 10, 102, 0.3);
+//   }
+// }

@@ -1,0 +1,85 @@
+extends ../layouts/default
+
+block variables
+  - var pageTitle = 'Iteca Caspian and Caspian Event Organisers Conclude the 2025 Exhibition Season - CEO'
+  - var pageDescription = 'The organisers of international exhibitions in Azerbaijan — Iteca Caspian and Caspian Event Organisers (CEO) — have successfully concluded the 2025 exhibition season.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.news-details-hero
+    .container
+      h1.news-details__title Iteca Caspian and Caspian Event Organisers Conclude the 2025 Exhibition Season
+
+  // Meta Info Section (Date + Share)
+  section.news-details-meta
+    .container
+      .news-details__meta.d-flex.justify-content-between.align-items-center.border-top.border-bottom.py-3
+        .news-details__date
+          i.fal.fa-calendar
+          time(datetime="2024-08-27") 27 August, 2024
+        .news-details__share
+          button.news-details__share-btn(type="button" aria-label="Share on Facebook")
+            i.fab.fa-facebook
+          button.news-details__share-btn(type="button" aria-label="Share on Twitter")
+            i.fab.fa-twitter
+          button.news-details__share-btn(type="button" aria-label="Share on LinkedIn")
+            i.fab.fa-linkedin
+          button.news-details__share-btn(type="button" aria-label="Share on WhatsApp")
+            i.fab.fa-whatsapp
+          button.news-details__share-btn(type="button" aria-label="Copy Link")
+            i.fas.fa-link
+
+  // Media Section (Main Image + Thumbnails)
+  section.news-details-media
+    .container
+      .row.g-4.align-items-start
+        .col-12.col-lg-9
+          .news-details__slider-main.swiper
+            .swiper-wrapper
+              .swiper-slide
+                .news-details__image-main
+                  img(src="assets/img/webp/news1.webp" alt="Iteca Caspian and Caspian Event Organisers" loading="eager")
+              .swiper-slide
+                .news-details__image-main
+                  img(src="assets/img/webp/news2.webp" alt="Exhibition Event 1" loading="lazy")
+              .swiper-slide
+                .news-details__image-main
+                  img(src="assets/img/webp/news3.webp" alt="Exhibition Event 2" loading="lazy")
+              .swiper-slide
+                .news-details__image-main
+                  img(src="assets/img/webp/news4.webp" alt="Exhibition Event 3" loading="lazy")
+            .news-details__nav
+              button.news-details__nav-btn.news-details__nav-btn--prev#news-details-main__nav-prev(type="button" aria-label="Previous image")
+                i.fas.fa-arrow-left
+              button.news-details__nav-btn.news-details__nav-btn--next#news-details-main__nav-next(type="button" aria-label="Next image")
+                i.fas.fa-arrow-right
+        .col-12.col-lg-3
+          .news-details__slider-thumbs.swiper
+            .swiper-wrapper
+              .swiper-slide
+                .news-details__thumb
+                  img(src="assets/img/webp/news1.webp" alt="Thumbnail 1" loading="lazy")
+              .swiper-slide
+                .news-details__thumb
+                  img(src="assets/img/webp/news2.webp" alt="Thumbnail 2" loading="lazy")
+              .swiper-slide
+                .news-details__thumb
+                  img(src="assets/img/webp/news3.webp" alt="Thumbnail 3" loading="lazy")
+              .swiper-slide
+                .news-details__thumb
+                  img(src="assets/img/webp/news4.webp" alt="Thumbnail 4" loading="lazy")
+
+  // Content Section (Article Text)
+  section.news-details-content
+    .container
+      .news-details__content
+        p The organisers of international exhibitions in Azerbaijan — Iteca Caspian and Caspian Event Organisers (CEO) — have successfully concluded the 2025 exhibition season.
+        p Throughout the year, 13 international exhibitions and 2 forums covering various sectors were held in Baku. These events have become key platforms contributing to the development of Azerbaijan's economy, particularly the expansion of the non-oil sector, by encompassing industries such as food, agriculture, healthcare, water management, construction, transport, and others.
+        p As in previous years, the international exhibitions held in 2025 received attention and support from the country's leadership. President of the Republic of Azerbaijan, Mr. Ilham Aliyev, visited several large-scale events held in Baku, including Caspian Agro, InterFood Azerbaijan, and Baku Energy Week, where he met with participants and viewed the exhibition stands. In addition, the Head of State addressed a congratulatory message to the participants of Caspian Construction Week, highlighting the importance of the event in the context of the reconstruction and restoration of Karabakh.
+        p All exhibitions were held with the support of relevant government institutions and sectoral authorities, reflecting the state's commitment to developing the exhibition industry and fostering growth in the non-oil sector.
+        p In a recent address, President Ilham Aliyev once again underlined the importance of the non-oil sector as a driving force of the national economy, stating:
+        p "The leading driving force of our economy today is the non-oil sector. It accounts for the greater part of our overall economy."
+        p These words perfectly encapsulate the core vision and purpose of the exhibitions held in 2025. The themes and focuses of this year's exhibitions echoed the President's message, serving as powerful tools for enhancing the share of the non-oil sector in Azerbaijan's economy and promoting international cooperation in this field.
+        p Thanks to these events, numerous foreign companies and investors representing the non-oil industry were attracted to Azerbaijan. By presenting their innovations, advanced technologies, and expertise at the exhibitions, they contributed to the creation of new partnerships and manufacturing enterprises within the local market.
+        p The international exhibitions held in Baku in 2025 attracted over 45,000 professional visitors from more than 70 countries. In total, around 9,000 foreign guests visited Azerbaijan to participate in or attend the exhibitions. The events brought together approximately 1,200 companies from over 60 countries, of which more than 700 were international exhibitors. Many countries participated with national pavilions — in total, 17 national pavilions were presented this year.

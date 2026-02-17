@@ -1,0 +1,299 @@
+// Hero Slider Component
+// БЭМ: .hero-slider
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 740px;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 450px;
+  }
+
+  // Slide
+  &__slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Background Image
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    // Параллакс эффект для изображения
+    &[data-swiper-parallax] {
+      transition: transform 0.3s ease;
+    }
+  }
+
+  // Overlay для затемнения
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 1;
+  }
+
+  // Content Container
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    padding: 0 20px;
+    color: var(--white);
+    text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+      padding: 0 50px;
+    }
+  }
+
+  // Subtitle
+  &__subtitle {
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    opacity: 0;
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: var(--font-family);
+    font-size: 32px;
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    opacity: 0;
+
+    @media (min-width: 768px) {
+      font-size: 48px;
+      margin-bottom: 25px;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 56px;
+      margin-bottom: 30px;
+    }
+  }
+
+  // Description
+  &__description {
+    font-family: var(--font-family);
+    font-size: 14px;
+    font-weight: var(--font-weight-regular);
+    color: var(--white);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0;
+    max-width: 600px;
+
+    @media (max-width: 767px) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 18px;
+    }
+  }
+
+  // Button
+  &__button {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: var(--primary);
+    color: var(--white);
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    opacity: 0;
+
+    &:hover {
+      background-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(228, 10, 102, 0.3);
+    }
+
+    @media (min-width: 768px) {
+      padding: 18px 50px;
+      font-size: 18px;
+    }
+  }
+
+  // Navigation Buttons
+  &__nav-prev,
+  &__nav-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+
+    &:hover {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    @media (max-width: 767px) {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+
+  &__nav-prev {
+    left: 20px;
+
+    @media (min-width: 768px) {
+      left: 40px;
+    }
+  }
+
+  &__nav-next {
+    right: 20px;
+
+    @media (min-width: 768px) {
+      right: 40px;
+    }
+  }
+
+  // Pagination
+  &__pagination {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+
+    @media (max-width: 767px) {
+      bottom: 20px;
+      gap: 8px;
+    }
+
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border: 2px solid transparent;
+      opacity: 1;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+        transform: scale(1.2);
+      }
+
+      &-active {
+        background-color: var(--primary);
+        border-color: var(--white);
+        width: 40px;
+        border-radius: 6px;
+      }
+
+      @media (max-width: 767px) {
+        width: 10px;
+        height: 10px;
+
+        &-active {
+          width: 30px;
+        }
+      }
+    }
+  }
+
+  // Progress Bar (опционально)
+  &__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 10;
+  }
+
+  &__progress-bar {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary);
+    transform-origin: left;
+    transition: transform 0.1s linear;
+  }
+
+  // Swiper wrapper override
+  .swiper-wrapper {
+    align-items: center;
+  }
+
+  // Animation states
+  .swiper-slide-active {
+    .hero-slider__subtitle,
+    .hero-slider__title,
+    .hero-slider__description,
+    .hero-slider__button {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

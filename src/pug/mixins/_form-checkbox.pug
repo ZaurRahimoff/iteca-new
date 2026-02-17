@@ -1,0 +1,31 @@
+//- Form Checkbox Mixin - универсальный компонент чекбокса
+//- Usage:
+//-   +form-checkbox('agree', 'Я согласен с условиями', true, true)
+//-   +form-checkbox('newsletter', 'Подписаться на рассылку', false, false, 'form-check--custom')
+//-
+//- Parameters:
+//-   name - имя поля (обязательно)
+//-   label - текст метки (обязательно)
+//-   checked - отмечен ли чекбокс (default: false)
+//-   required - обязательное поле (default: false)
+//-   checkClass - дополнительный класс для .form-check (опционально)
+//-   value - значение чекбокса (default: "1")
+//-   id - id поля (если не указан, используется name)
+
+mixin form-checkbox(name, label, checked = false, required = false, checkClass = "", value = "1", id = null)
+  - var checkboxId = id || name
+  - var checkClasses = checkClass ? `form-check ${checkClass}` : 'form-check'
+  
+  div(class=checkClasses)
+    input.form-check-input(
+      type="checkbox"
+      id=checkboxId
+      name=name
+      value=value
+      checked=checked
+      required=required
+    )
+    label.form-check-label(for=checkboxId)= label
+      if required
+        span.text-danger *
+

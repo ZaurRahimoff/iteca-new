@@ -1,0 +1,177 @@
+extends ../layouts/default
+
+include ../mixins/_title
+include ../mixins/_button
+
+block variables
+  - var pageTitle = 'Services Request Form - CEO'
+  - var pageDescription = 'Request services from Caspian Event Organisers. Fill out the form to get started with event planning, exhibitions, and more.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.form-hero
+    .container
+      .form-hero__content
+        +title('Services Request Form', 'h1')
+
+  // Form Section
+  section.form-section
+    .container
+      p.form-note
+        | Fields marked with 
+        span.form-note__required *
+        |  are required
+
+      form.form.form-request(action="#" method="POST")
+        .row.g-4
+          // Gender
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="gender")
+                | Gender 
+                span.form-label__required *
+              select.form-select.wide#gender(name="gender" required)
+                option(value="" selected) ---
+                option(value="male") Male
+                option(value="female") Female
+                option(value="other") Other
+
+          // Name
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="name")
+                | Name 
+                span.form-label__required *
+              input.form-input#name(type="text" name="name" required)
+
+          // Surname
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="surname")
+                | Surname 
+                span.form-label__required *
+              input.form-input#surname(type="text" name="surname" required)
+
+          // Email
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="email")
+                | Email 
+                span.form-label__required *
+              input.form-input#email(type="email" name="email" required)
+
+          // Company
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="company")
+                | Company 
+                span.form-label__required *
+              input.form-input#company(type="text" name="company" required)
+
+          // Position
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="position")
+                | Position 
+                span.form-label__required *
+              input.form-input#position(type="text" name="position" required)
+
+          // Address
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="address")
+                | Address 
+                span.form-label__required *
+              input.form-input#address(type="text" name="address" required)
+
+          // City
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="city")
+                | City 
+                span.form-label__required *
+              input.form-input#city(type="text" name="city" required)
+
+          // ZIP Code
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="zip") ZIP Code
+              input.form-input#zip(type="text" name="zip")
+
+          // Country
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="country")
+                | Country 
+                span.form-label__required *
+              select.form-select.wide#country(name="country" required)
+                option(value="" selected) ---
+                option(value="az") Azerbaijan
+                option(value="us") United States
+                option(value="uk") United Kingdom
+                option(value="de") Germany
+                option(value="fr") France
+                option(value="ru") Russia
+                option(value="tr") Turkey
+
+          // Phone
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="phone")
+                | Phone 
+                span.form-label__required *
+              input.form-input#phone(type="tel" name="phone" required)
+
+          // Mobile
+          .col-12.col-md-6
+            .form-group
+              label.form-label(for="mobile")
+                | Mobile 
+                span.form-label__required *
+              input.form-input#mobile(type="tel" name="mobile" required)
+
+          // Website
+          .col-12
+            .form-group
+              label.form-label(for="website") Website
+              input.form-input#website(type="url" name="website")
+
+          // Event Type Accordion
+          .col-12
+            .accordion
+              .accordion-item.form-accordion__item
+                h2.accordion-header
+                  button.accordion-button.collapsed(
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseEvent"
+                    aria-expanded="false"
+                    aria-controls="collapseEvent"
+                  )
+                    span.form-accordion__title
+                      | I would like to order the following event 
+                      span.form-label__required *
+                    i.fas.fa-chevron-down.form-accordion__icon
+                #collapseEvent.accordion-collapse.collapse
+                  .accordion-body
+                    .form-checkbox-group
+                      .form-checkbox-item
+                        input.form-checkbox#eventCorporate(type="checkbox" name="event_type[]" value="corporate")
+                        label.form-checkbox-label(for="eventCorporate") Corporate event
+                      .form-checkbox-item
+                        input.form-checkbox#eventAdvertising(type="checkbox" name="event_type[]" value="advertising")
+                        label.form-checkbox-label(for="eventAdvertising") Advertising campaign
+                      .form-checkbox-item
+                        input.form-checkbox#eventOther(type="checkbox" name="event_type[]" value="other")
+                        label.form-checkbox-label(for="eventOther") Other
+
+          // Your notes / questions
+          .col-12
+            .form-group
+              label.form-label(for="notes") Your notes / questions
+              textarea.form-textarea#notes(name="notes" rows="5")
+
+          // Submit Button
+          .col-12
+            +button('Submit', 'primary', 'block', 'submit')

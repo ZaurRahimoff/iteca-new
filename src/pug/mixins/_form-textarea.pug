@@ -1,0 +1,34 @@
+//- Form Textarea Mixin - универсальный компонент текстовой области
+//- Usage:
+//-   +form-textarea('message', 'Сообщение', 'Введите сообщение', true, 5)
+//-
+//- Parameters:
+//-   name - имя поля (обязательно)
+//-   label - текст метки (опционально)
+//-   placeholder - placeholder текст (опционально)
+//-   required - обязательное поле (default: false)
+//-   rows - количество строк (default: 4)
+//-   groupClass - дополнительный класс для .form-group (опционально)
+//-   textareaClass - дополнительный класс для textarea (опционально)
+//-   value - значение поля (опционально)
+//-   id - id поля (если не указан, используется name)
+
+mixin form-textarea(name, label = null, placeholder = null, required = false, rows = 4, groupClass = "", textareaClass = "", value = null, id = null)
+  - var textareaId = id || name
+  - var groupClasses = groupClass ? `form-group ${groupClass}` : 'form-group'
+  - var textareaClasses = textareaClass ? `form-control ${textareaClass}` : 'form-control'
+  
+  div(class=groupClasses)
+    if label
+      label.form-label(for=textareaId)= label
+        if required
+          span.text-danger *
+    textarea(
+      id=textareaId
+      name=name
+      class=textareaClasses
+      placeholder=placeholder
+      rows=rows
+      required=required
+    )= value || ''
+

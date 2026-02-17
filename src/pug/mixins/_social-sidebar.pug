@@ -1,0 +1,14 @@
+//- Миксин боковой панели социальных сетей
+//- @param {array} socials - Массив объектов с данными социальных сетей
+//-   - icon: класс иконки Font Awesome
+//-   - link: ссылка на профиль
+//-   - label: aria-label для доступности
+
+mixin social-sidebar(socials)
+  - var defaultSocials = [{icon: 'fab fa-instagram', link: '#', label: 'Instagram'}, {icon: 'fab fa-linkedin', link: '#', label: 'LinkedIn'}, {icon: 'fab fa-whatsapp', link: '#', label: 'WhatsApp'}]
+  - socials = socials || defaultSocials
+  
+  .social-sidebar
+    each social in socials
+      a.social-sidebar__link(href=social.link target="_blank" rel="noopener noreferrer" aria-label=social.label)
+        i(class=social.icon)

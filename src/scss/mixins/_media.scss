@@ -1,0 +1,289 @@
+// Media queries mixins - responsive breakpoints utilities
+// Универсальная система медиа-запросов на основе переменных из _variables.scss
+
+// Импорт переменных для доступа к брейкпоинтам
+@import '../variables/variables';
+
+// ============================================
+// Mobile-first approach (min-width) - "от и выше"
+// ============================================
+
+// От xs и выше (375px+)
+@mixin xs-up {
+  @media (min-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+// От sm и выше (480px+)
+@mixin sm-up {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+// От md и выше (576px+)
+@mixin md-up {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+// От lg и выше (768px+)
+@mixin lg-up {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// От xl и выше (992px+)
+@mixin xl-up {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+// От xxl и выше (1440px+)
+@mixin xxl-up {
+  @media (min-width: $breakpoint-xxl) {
+    @content;
+  }
+}
+
+// ============================================
+// Desktop-first approach (max-width) - "до и ниже"
+// ============================================
+
+// До xs (до 375px)
+@mixin xs-down {
+  @media (max-width: ($breakpoint-mobile - 1px)) {
+    @content;
+  }
+}
+
+// До sm (до 480px)
+@mixin sm-down {
+  @media (max-width: ($breakpoint-sm - 1px)) {
+    @content;
+  }
+}
+
+// До md (до 576px)
+@mixin md-down {
+  @media (max-width: ($breakpoint-md - 1px)) {
+    @content;
+  }
+}
+
+// До lg (до 768px) - самый используемый
+@mixin lg-down {
+  @media (max-width: ($breakpoint-lg - 1px)) {
+    @content;
+  }
+}
+
+// До xl (до 992px)
+@mixin xl-down {
+  @media (max-width: ($breakpoint-xl - 1px)) {
+    @content;
+  }
+}
+
+// До xxl (до 1440px)
+@mixin xxl-down {
+  @media (max-width: ($breakpoint-xxl - 1px)) {
+    @content;
+  }
+}
+
+// ============================================
+// Точные диапазоны (only) - "только этот размер"
+// ============================================
+
+// Только xs (до 480px)
+@mixin xs-only {
+  @media (max-width: ($breakpoint-sm - 1px)) {
+    @content;
+  }
+}
+
+// Только sm (от 480px до 576px)
+@mixin sm-only {
+  @media (min-width: $breakpoint-sm) and (max-width: ($breakpoint-md - 1px)) {
+    @content;
+  }
+}
+
+// Только md (от 576px до 768px)
+@mixin md-only {
+  @media (min-width: $breakpoint-md) and (max-width: ($breakpoint-lg - 1px)) {
+    @content;
+  }
+}
+
+// Только lg (от 768px до 992px)
+@mixin lg-only {
+  @media (min-width: $breakpoint-lg) and (max-width: ($breakpoint-xl - 1px)) {
+    @content;
+  }
+}
+
+// Только xl (от 992px до 1440px)
+@mixin xl-only {
+  @media (min-width: $breakpoint-xl) and (max-width: ($breakpoint-xxl - 1px)) {
+    @content;
+  }
+}
+
+// Только xxl (от 1440px и выше)
+@mixin xxl-only {
+  @media (min-width: $breakpoint-xxl) {
+    @content;
+  }
+}
+
+// ============================================
+// Legacy aliases (для обратной совместимости)
+// ============================================
+
+// Mobile-first (старые названия)
+@mixin mobile-up {
+  @include xs-up {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @include lg-up {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @include xxl-up {
+    @content;
+  }
+}
+
+// Desktop-first (старые названия)
+@mixin mobile-only {
+  @include lg-down {
+    @content;
+  }
+}
+
+@mixin mobile-down {
+  @include lg-down {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @include lg-only {
+    @content;
+  }
+}
+
+@mixin tablet-down {
+  @include xxl-down {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @include xxl-only {
+    @content;
+  }
+}
+
+// Старые короткие названия
+@mixin mobile {
+  @include lg-down {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include lg-only {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include xxl-only {
+    @content;
+  }
+}
+
+// ============================================
+// Универсальные миксины для кастомных значений
+// ============================================
+
+// Между двумя брейкпоинтами
+@mixin between($min, $max: null) {
+  @if $max == null {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $min) and (max-width: ($max - 1px)) {
+      @content;
+    }
+  }
+}
+
+// Кастомный min-width
+@mixin min-width($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+// Кастомный max-width
+@mixin max-width($width) {
+  @media (max-width: ($width - 1px)) {
+    @content;
+  }
+}
+
+// ============================================
+// Ориентация экрана
+// ============================================
+
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+// ============================================
+// High DPI / Retina displays
+// ============================================
+
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @content;
+  }
+}
+
+@mixin high-dpi($ratio: 2) {
+  @media (-webkit-min-device-pixel-ratio: $ratio), (min-resolution: #{$ratio * 96}dpi) {
+    @content;
+  }
+}
+
+// ============================================
+// Print media
+// ============================================
+
+@mixin print {
+  @media print {
+    @content;
+  }
+}

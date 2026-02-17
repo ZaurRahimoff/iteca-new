@@ -1,0 +1,102 @@
+// Статистика (50+ Projects, 70+ Staff, 250+ Partners)
+// БЭМ: .statistics, .statistics__item, .statistics__icon, и т.д.
+
+.statistics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 0 0 311px;
+    background-color: var(--primary);
+    padding: 17px 25px;
+    border-radius: 8px;
+    max-height: 100px;
+    height: 100%;
+    min-height: 100px;
+  }
+
+  &__icon {
+    width: 23px;
+    height: 21px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      color: var(--white);
+      font-size: 23px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__number {
+    font-family: var(--font-family);
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-semibold);
+    color: var(--white);
+    line-height: 1;
+    margin: 0 0 0 0;
+  }
+
+  &__label {
+    font-family: var(--font-family);
+    font-size: var(--font-size-h6);
+    font-weight: var(--font-weight-medium);
+    color: var(--white);
+    line-height: 1;
+    margin: 0;
+  }
+
+  // Мобильная версия - карточки слитные
+  @media (max-width: 768px) {
+    // flex-direction: column;
+    gap: 0;
+    padding: 16px 32px;
+
+    &__item {
+      flex: 1;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0;
+      border-radius: 0;
+      max-height: 90px;
+      height: 100%;
+      min-height: 90px;
+
+      &:first-child {
+        border-radius: 8px 8px 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 8px 8px;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    &__icon {
+      width: 12px;
+      height: 21px;
+    }
+
+    &__content {
+      align-items: center;
+      text-align: center;
+    }
+  }
+}

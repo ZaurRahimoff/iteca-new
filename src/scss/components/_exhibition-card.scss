@@ -1,0 +1,156 @@
+// Карточки выставок для календаря (Bootstrap 5 + кастомизация)
+// БЭМ: .ex-card, .ex-logo, .ex-content, и т.д.
+
+.ex-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 0px rgba(41, 56, 146, 0.25);
+
+  @media (max-width: 767px) {
+    padding: 16px;
+    border-radius: 8px;
+    // border: 1px solid var(--line);
+    // background: var(--card);
+    box-shadow: 0 0 5px 0 rgba(41, 56, 146, 0.25);
+  }
+
+  // Логотип выставки
+  .ex-logo {
+    padding: 35px 73px;
+    border-radius: 8px 0 0 8px;
+    background: var(--white);
+    min-height: 150px;
+    max-height: 150px;
+
+    @media (max-width: 767px) {
+      padding: 50px 73px;
+      border-right: none;
+      // border-bottom: 1px solid var(--line);
+      min-height: 200px;
+      max-height: 200px;
+      border-radius: 8px;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 80px;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+
+      @media (max-width: 767px) {
+        max-height: 100px;
+      }
+    }
+  }
+
+  // Контент карточки
+  .ex-content {
+    background-color: var(--white);
+    // border-left: 1px solid var(--line);
+    border-radius: 0 8px 8px 0;
+    padding: 20px;
+    gap: 30px;
+
+    @media (max-width: 767px) {
+      padding: 16px;
+      gap: 15px;
+    }
+  }
+
+  .ex-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: 100%;
+
+    @media (max-width: 767px) {
+      gap: 15px;
+      width: 100%;
+    }
+  }
+
+  .ex-title {
+    font-family: var(--font-family);
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-medium);
+    color: var(--text-2);
+    line-height: 1.2;
+    margin: 0;
+
+    @media (max-width: 767px) {
+      font-size: var(--font-size-title-mobile);
+    }
+  }
+
+  .ex-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+
+  .ex-date,
+  .ex-website {
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    color: var(--secondary);
+    gap: 10px;
+
+    @media (max-width: 767px) {
+      font-size: var(--font-size-body-mobile);
+    }
+
+    i {
+      width: 19px;
+      height: 19px;
+      color: var(--secondary);
+      flex-shrink: 0;
+      font-size: 19px;
+    }
+
+    a {
+      color: var(--secondary);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+
+  .ex-actions {
+    min-width: 200px;
+    gap: 15px;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      min-width: 0;
+    }
+
+    .btn {
+      white-space: nowrap;
+      padding: 5px 10px;
+      height: 30px;
+      font-size: var(--font-size-body);
+      font-weight: var(--font-weight-medium);
+      gap: 10px;
+      width: auto;
+      margin-left: auto;
+
+      @media (max-width: 575px) {
+        flex: 1 1 auto;
+        min-width: 0;
+        width: auto;
+        max-width: fit-content;
+        margin: 0 auto;
+        font-size: var(--font-size-body-mobile);
+      }
+
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+}

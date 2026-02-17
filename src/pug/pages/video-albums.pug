@@ -1,0 +1,68 @@
+extends ../layouts/default
+
+include ../mixins/_title
+include ../mixins/_year-select
+include ../mixins/_pagination
+
+block variables
+  - var pageTitle = 'Video Albums - CEO'
+  - var pageDescription = 'Photo gallery of events organized by Caspian Event Organisers (CEO). View photos from exhibitions, conferences, and forums.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title and Filter
+  section.photo-albums-hero
+    .container
+      .photo-albums-hero__content
+        .photo-albums-hero__header
+          +title('Video', 'h1')
+          .photo-albums-filter
+            +year-select({ years: [2026, 2025, 2024, 2023], current: 2026, name: 'album-year', id: 'album-year' })
+
+  // Photo Albums Grid Section
+  section.photo-albums-section
+    .container
+      .row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4
+        // Row 1
+        .col
+          article.album-card.card.h-100.border-0
+            a.album-link(href="video-gallery.html" aria-label="View III NATIONAL URBAN FORUM OF AZERBAIJAN album")
+                .album-image
+                    img.card-img(src="assets/img/webp/welcome/photo-slide1.webp" alt="III NATIONAL URBAN FORUM OF AZERBAIJAN" loading="lazy")
+                .album-content.card-body
+                    h3.album-title.card-title III NATIONAL URBAN FORUM OF AZERBAIJAN
+        .col
+          article.album-card.card.h-100.border-0
+            a.album-link(href="video-gallery.html" aria-label="View 1st AZERBAIJAN INTERNATIONAL INVESTMENT FORUM album")
+                .album-image
+                    img.card-img(src="assets/img/webp/welcome/photo-slide2.webp" alt="1st AZERBAIJAN INTERNATIONAL INVESTMENT FORUM" loading="lazy")
+                .album-content.card-body
+                    h3.album-title.card-title 1st AZERBAIJAN INTERNATIONAL INVESTMENT FORUM
+        .col
+          article.album-card.card.h-100.border-0
+            a.album-link(href="video-gallery.html" aria-label="View CRITICAL INFRASTRUCTURE DEFENCE CHALLENGE 2025 album")
+                .album-image
+                    img.card-img(src="assets/img/webp/welcome/photo-slide3.webp" alt="CRITICAL INFRASTRUCTURE DEFENCE CHALLENGE 2025" loading="lazy")
+                .album-content.card-body
+                    h3.album-title.card-title CRITICAL INFRASTRUCTURE DEFENCE CHALLENGE 2025
+        .col
+          article.album-card.card.h-100.border-0
+            a.album-link(href="video-gallery.html" aria-label="View Qatari Cultural Week album")
+                .album-image
+                    img.card-img(src="assets/img/webp/welcome/photo-slide4.webp" alt="Qatari Cultural Week" loading="lazy")
+                .album-content.card-body
+                    h3.album-title.card-title Qatari Cultural Week
+
+
+  // Pagination Section
+  section.pb-4.pb-md-5
+    .container
+      .row
+        .col-12
+          +pagination({
+            currentPage: 1,
+            totalPages: 10,
+            prevText: 'Əvvəl',
+            nextText: 'Sonra',
+            showDivider: false
+          })

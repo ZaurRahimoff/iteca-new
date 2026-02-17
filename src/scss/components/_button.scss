@@ -1,0 +1,189 @@
+// Кнопки
+// БЭМ: .btn, .btn__text, .btn--primary, .btn--outline, .btn--link
+// Дизайн из Figma (node-id=262-2497)
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-h6);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-base);
+  white-space: nowrap;
+
+  @media (max-width: 768px) {
+    padding: 12px 24px;
+    font-size: var(--font-size-h6-mobile);
+  }
+
+  &__text {
+    display: inline-block;
+    line-height: 1;
+  }
+
+  i {
+    font-size: 1em;
+    line-height: 1;
+  }
+
+  // Primary (заполненная) - Figma Design
+  &--primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+
+    &:hover,
+    &:focus {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      // transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(41, 56, 146, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(41, 56, 146, 0.3);
+    }
+  }
+
+  // Secondary (оранжевая)
+  &--secondary {
+    background-color: var(--secondary);
+    color: var(--white);
+    border-color: var(--secondary);
+
+    &:hover,
+    &:focus {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+      color: var(--white);
+      // transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(235, 106, 5, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 6px rgba(235, 106, 5, 0.3);
+    }
+  }
+
+  // Outline (с обводкой)
+  &--outline {
+    background-color: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+
+    &:hover,
+    &:focus {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      // transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(41, 56, 146, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Outline Secondary
+  &--outline-secondary {
+    background-color: transparent;
+    color: var(--secondary);
+    border-color: var(--secondary);
+
+    &:hover,
+    &:focus {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(235, 106, 5, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Link (ссылка)
+  &--link {
+    background-color: transparent;
+    color: var(--primary);
+    border-color: transparent;
+    padding: 0;
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      color: var(--primary);
+      text-decoration: none;
+      transform: none;
+    }
+  }
+
+  // White (белая кнопка)
+  &--white {
+    background-color: var(--white);
+    color: var(--primary);
+    border-color: var(--white);
+
+    &:hover,
+    &:focus {
+      background-color: var(--white);
+      border-color: var(--white);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Disabled state
+  &:disabled,
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // Small size
+  &--sm {
+    padding: 10px 20px;
+    font-size: var(--font-size-title);
+
+    @media (max-width: 768px) {
+      padding: 8px 16px;
+      font-size: var(--font-size-title-mobile);
+    }
+  }
+
+  // Large size
+  &--lg {
+    padding: 18px 40px;
+    font-size: var(--font-size-h5);
+
+    @media (max-width: 768px) {
+      padding: 15px 32px;
+      font-size: var(--font-size-h5-mobile);
+    }
+  }
+
+  // Full width
+  &--block {
+    width: 100%;
+  }
+}

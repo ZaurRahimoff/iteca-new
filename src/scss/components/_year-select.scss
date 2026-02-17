@@ -1,0 +1,68 @@
+// Year Select (nice-select)
+// Дизайн Figma node-id=134-1662: капсула, ярко-розовый фон, белый текст и стрелка вниз
+
+.year-select-wrap {
+  display: inline-block;
+}
+
+// Стили для сгенерированного nice-select (класс копируется с select)
+.nice-select.year-select {
+  background-color: var(--primary);
+  border: none;
+  border-radius: 4px;
+  color: var(--white);
+  font-family: var(--font-family);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-semibold);
+  height: 40px;
+  line-height: 38px;
+  padding-left: 20px;
+  padding-right: 40px;
+  min-width: 90px;
+  transition: var(--transition-base);
+  background-image: none;
+
+  &:hover,
+  &:focus,
+  &.open {
+    background-color: var(--primary);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(228, 10, 102, 0.3);
+  }
+
+  &::after {
+    border-bottom-color: var(--white);
+    border-right-color: var(--white);
+    right: 16px;
+  }
+
+  .current {
+    color: var(--white);
+  }
+
+  .list {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    margin-top: 6px;
+    padding: 0;
+  }
+
+  .option {
+    color: var(--text);
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &:hover,
+    &.focus,
+    &.selected.focus {
+      background-color: rgba(228, 10, 102, 0.08);
+      color: var(--primary);
+    }
+
+    &.selected {
+      font-weight: var(--font-weight-semibold);
+      color: var(--primary);
+    }
+  }
+}

@@ -1,0 +1,29 @@
+// Основные переменные проекта
+// Автоматически сгенерировано
+
+$border-radius: 4px;
+$container-width: 1200px;
+
+// Breakpoints
+$breakpoint-mobile: 375px;
+$breakpoint-sm: 480px;
+$breakpoint-md: 576px;
+$breakpoint-lg: 768px;
+$breakpoint-tablet: 768px;
+$breakpoint-xl: 992px;
+$breakpoint-xxl: 1440px;
+$breakpoint-desktop: 1440px;
+
+// Transitions
+$transition-base: 0.3s ease;
+$transition-fast: 0.15s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;

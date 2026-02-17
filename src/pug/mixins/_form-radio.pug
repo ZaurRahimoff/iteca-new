@@ -1,0 +1,31 @@
+//- Form Radio Mixin - универсальный компонент радиокнопки
+//- Usage:
+//-   +form-radio('gender', 'male', 'Мужской', true, true)
+//-   +form-radio('gender', 'female', 'Женский', false, true)
+//-
+//- Parameters:
+//-   name - имя группы радиокнопок (обязательно)
+//-   value - значение радиокнопки (обязательно)
+//-   label - текст метки (обязательно)
+//-   checked - выбрана ли радиокнопка (default: false)
+//-   required - обязательное поле (default: false)
+//-   radioClass - дополнительный класс для .form-check (опционально)
+//-   id - id поля (если не указан, используется name-value)
+
+mixin form-radio(name, value, label, checked = false, required = false, radioClass = "", id = null)
+  - var radioId = id || `${name}-${value}`
+  - var radioClasses = radioClass ? `form-check ${radioClass}` : 'form-check'
+  
+  div(class=radioClasses)
+    input.form-check-input(
+      type="radio"
+      id=radioId
+      name=name
+      value=value
+      checked=checked
+      required=required
+    )
+    label.form-check-label(for=radioId)= label
+      if required
+        span.text-danger *
+

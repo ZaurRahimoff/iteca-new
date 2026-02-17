@@ -1,0 +1,34 @@
+//- Миксин кнопки (Figma Design node-id=262-2497)
+//- @param {string} text - Текст кнопки
+//- @param {string} variant - Вариант кнопки: 'primary', 'secondary', 'outline', 'outline-secondary', 'link', 'white'
+//- @param {string} size - Размер: '', 'sm', 'lg'
+//- @param {string} tag - HTML тег: 'button' или 'a'
+//- @param {string} href - URL для ссылки (если tag='a')
+//- @param {string} icon - Иконка Font Awesome (опционально)
+//- @param {string} iconPosition - Позиция иконки: 'left' или 'right' (по умолчанию 'left')
+//- @param {boolean} block - Кнопка на всю ширину
+//- @param {boolean} disabled - Отключенная кнопка
+//- @param {string} buttonType - Тип для button: 'button', 'submit', 'reset' (по умолчанию 'button')
+
+mixin button(text, variant='primary', size='', tag='button', href='#', icon=null, iconPosition='left', block=false, disabled=false, buttonType='button')
+  - var btnClass = 'btn'
+  - var classes = [btnClass, `${btnClass}--${variant}`]
+  - if (size) classes.push(`${btnClass}--${size}`)
+  - if (block) classes.push(`${btnClass}--block`)
+  - if (disabled) classes.push(`${btnClass}--disabled`)
+  - var classStr = classes.join(' ')
+  
+  if tag === 'a'
+    a(class=classStr href=href)&attributes(attributes)
+      if icon && iconPosition === 'left'
+        i(class=icon)
+      span.btn__text= text
+      if icon && iconPosition === 'right'
+        i(class=icon)
+  else
+    button(class=classStr type=buttonType disabled=disabled)&attributes(attributes)
+      if icon && iconPosition === 'left'
+        i(class=icon)
+      span.btn__text= text
+      if icon && iconPosition === 'right'
+        i(class=icon)

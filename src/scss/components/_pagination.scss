@@ -1,0 +1,113 @@
+// Пагинация
+// БЭМ: .pagination, .pagination__btn, .pagination__numbers, и т.д.
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 14px;
+    height: 40px;
+    border: 1px solid var(--line);
+    background-color: var(--white);
+    color: var(--primary);
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-regular);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition-base);
+    white-space: nowrap;
+
+    i {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    span {
+      line-height: normal;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    &:hover {
+      background-color: var(--card);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &--prev {
+      // Специфические стили для кнопки "назад"
+    }
+
+    &--next {
+      // Специфические стили для кнопки "вперёд"
+    }
+  }
+
+  &__numbers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    flex: 1;
+  }
+
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: var(--primary);
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    border-radius: 4px;
+    line-height: 1;
+
+    &:hover {
+      background-color: var(--card);
+    }
+
+    &.active {
+      background-color: var(--primary);
+      color: var(--white);
+      pointer-events: none;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: var(--primary);
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+  }
+}

@@ -1,0 +1,27 @@
+doctype html
+html.h-100(lang="ru")
+  head
+    include ../components/_head-assets
+
+  body.d-flex.flex-column.h-100
+
+    - var headerClass = 'header fixed-top'
+    - if (typeof navbarStyle !== 'undefined' && navbarStyle === 'transparent') headerClass += ' header--transparent'
+    - else if (typeof navbarStyle !== 'undefined' && navbarStyle === 'white') headerClass += ' header--white'
+    
+    header(class=headerClass)
+      // Header
+      include ../components/_header
+
+    // Main
+    main.main.flex-shrink-0
+      block content
+
+    // Footer
+    include ../components/_footer
+
+    // Social Sidebar
+    include ../mixins/_social-sidebar
+    +social-sidebar()
+
+    include ../components/_js-assets

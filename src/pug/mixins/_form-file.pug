@@ -1,0 +1,38 @@
+//- Form File Mixin - компонент для загрузки файлов
+//- Usage:
+//-   +form-file('document', 'Upload document', true)
+//-
+//- Parameters:
+//-   name - имя поля (обязательно)
+//-   label - текст метки (опционально)
+//-   required - обязательное поле (default: false)
+//-   groupClass - дополнительный класс для .form-group (опционально)
+//-   accept - типы файлов (default: "*/*")
+//-   id - id поля (если не указан, используется name)
+
+mixin form-file(name, label = null, required = false, groupClass = "", accept = "*/*", id = null)
+	- var inputId = id || name
+	- var groupClasses = groupClass ? `form-group ${groupClass}` : 'form-group'
+	
+	div(class=groupClasses)
+		if label
+			label.form-label(for=inputId)= label
+				if required
+					span.text-danger *
+		.form-file-wrapper
+			input.form-control.form-file__input(
+				type="file"
+				id=inputId
+				name=name
+				accept=accept
+				required=required
+				style="display: none;"
+			)
+			input.form-file__display(
+				type="text"
+				readonly
+				placeholder="Select file"
+				id=`${inputId}_display`
+			)
+			button.form-file__button(type="button" data-file-input=inputId)
+				i.far.fa-upload

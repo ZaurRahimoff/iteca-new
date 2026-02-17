@@ -1,0 +1,137 @@
+extends ../layouts/default
+
+block variables
+	- var pageTitle = 'ADEX - Register as Professional Visitor'
+	- var pageDescription = 'Register as Professional Visitor for ADEX exhibition'
+	- var pageKeywords = 'ADEX, registration, professional visitor, register, exhibition'
+	- var pageCanonical = 'https://adex.az/form.html'
+	- var pageOgImage = 'https://adex.az/og-image.jpg'
+	- var pageAuthor = 'ADEX'
+
+block content
+
+	// Form Section
+	section.form-section.mt-5.pt-5
+		.container
+			// Page Title
+			h1.form-section__title Register as Professional Visitor
+
+			// Registration Form
+			.form-registration.form-container
+				// Information Block
+				.form-registration__info
+					p.form-registration__info-title Dear visitor,
+					p.form-registration__info-text We kindly request that you carefully fill out the registration form for each participant. Please note that the information you provide in the form (full name, job title, company name, etc.) will be displayed on your badge. After successful registration, a personalized electronic ticket will be sent to the email address you have provided. Upon arrival at the exhibition, please present the ticket on your mobile device or in printed form at the registration desk in order to receive your personalized badge.
+					p.form-registration__info-note
+						span Fields marked with 
+						span.form-registration__info-asterisk *
+						span  are required
+
+				// Divider
+				.form-divider
+
+				// Form
+				form.form-layout(action="#" method="POST" enctype="multipart/form-data")
+					// Title
+					include ../mixins/_form-select
+					+form-select('title', 'Title', [
+						{value: '', text: 'Select title'},
+						{value: 'mr', text: 'Mr.'},
+						{value: 'mrs', text: 'Mrs.'},
+						{value: 'ms', text: 'Ms.'},
+						{value: 'dr', text: 'Dr.'}
+					], true, '', 'form-input-transparent')
+
+					// First name
+					include ../mixins/_form-input
+					+form-input('firstname', 'text', 'First name', '', true, '', 'form-input-transparent')
+
+					// Surname
+					+form-input('surname', 'text', 'Surname', '', true, '', 'form-input-transparent')
+
+					// Patronymic
+					+form-input('patronymic', 'text', 'Patronymic', '', true, '', 'form-input-transparent')
+
+					// Passport / ID
+					+form-input('passport', 'text', 'Passport / ID', '', true, '', 'form-input-transparent')
+
+					// Passport / ID Expiry Date
+					+form-input('passport_expiry', 'date', 'Passport / ID Expiry Date', '', true, '', 'form-input-transparent')
+
+
+					// Military Rank / Grade
+					+form-select('military_rank', 'Military Rank / Grade', [
+						{value: '', text: 'Select military rank / grade'},
+						{value: 'rank1', text: 'Rank 1'},
+						{value: 'rank2', text: 'Rank 2'}
+					], true, '', 'form-input-transparent')
+
+					// Company
+					+form-input('company', 'text', 'Company', '', true, '', 'form-input-transparent')
+
+					// Position
+					+form-input('position', 'text', 'Position', '', true, '', 'form-input-transparent')
+
+					// Country
+					+form-select('country', 'Country', [
+						{value: '', text: 'Select country'},
+						{value: 'az', text: 'Azerbaijan'},
+						{value: 'ru', text: 'Russia'},
+						{value: 'tr', text: 'Turkey'}
+					], true, '', 'form-input-transparent')
+
+					// City
+					+form-input('city', 'text', 'City', '', true, '', 'form-input-transparent')
+
+					// Phone number
+					include ../mixins/_form-phone
+					+form-phone('phone', 'Phone number', true, '', 'form-phone-group', 'az')
+
+					// E-mail
+					+form-input('email', 'email', 'E-mail', '', true, '', 'form-input-transparent')
+
+					// Visitors' Nature of Business
+					include ../mixins/_form-checkbox-group
+					+form-checkbox-group('nature_of_business', 'Visitors\' Nature of Business', [
+						{value: 'military', label: 'Military Servant'},
+						{value: 'rescue', label: 'Emergency Rescue Services'},
+						{value: 'law', label: 'Law Enforcement Agencies'},
+						{value: 'weaponry', label: 'Weaponry Manufacturing Industry'},
+						{value: 'business', label: 'Entrepreneurial (Business) activities'},
+						{value: 'media', label: 'Media'},
+						{value: 'student', label: 'Student / Teacher / Scientific Officer'},
+						{value: 'government', label: 'Other government agencies'},
+						{value: 'other', label: 'Other'}
+					], true)
+
+					// Which exhibition sector are you mainly interested in?
+					+form-select('exhibition_sector', 'Which exhibition sector are you mainly interested in?', [
+						{value: '', text: 'Select sector'},
+						{value: 'sector1', text: 'Sector 1'},
+						{value: 'sector2', text: 'Sector 2'}
+					], true, '', 'form-input-transparent')
+
+					// How did you know about ADEX?
+					+form-select('how_know', 'How did you know about ADEX?', [
+						{value: '', text: 'Select option'},
+						{value: 'website', text: 'Website'},
+						{value: 'social', text: 'Social media'},
+						{value: 'friend', text: 'Friend/Colleague'}
+					], true, '', 'form-input-transparent')
+
+					// What is your purpose of visiting the exhibition?
+					+form-select('purpose', 'What is your purpose of visiting the exhibition?', [
+						{value: '', text: 'Select purpose'},
+						{value: 'purpose1', text: 'Purpose 1'},
+						{value: 'purpose2', text: 'Purpose 2'}
+					], true, '', 'form-input-transparent')
+
+					// Which of the following best describes your role...
+					+form-select('role', 'Which of the following best describes your role in making purchasing decisions about products / services?', [
+						{value: '', text: 'Select role'},
+						{value: 'role1', text: 'Role 1'},
+						{value: 'role2', text: 'Role 2'}
+					], true, '', 'form-input-transparent')
+
+					// Submit Button
+					button.btn.form-submit.btn--primary(type="submit") Submit

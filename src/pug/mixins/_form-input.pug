@@ -1,0 +1,42 @@
+//- Form Input Mixin - универсальный компонент поля ввода
+//- Usage:
+//-   +form-input('name', 'text', 'Имя', 'Введите имя', true)
+//-   +form-input('email', 'email', 'Email', 'example@mail.com', true, 'form-group--custom')
+//-   +form-input('search', 'text', 'Search', 'Search...', false, '', 'form-control--search')
+//-
+//- Parameters:
+//-   name - имя поля (обязательно)
+//-   type - тип поля: text, email, password, tel, number, etc. (default: "text")
+//-   label - текст метки (опционально)
+//-   placeholder - placeholder текст (опционально)
+//-   required - обязательное поле (default: false)
+//-   groupClass - дополнительный класс для .form-group (опционально)
+//-   inputClass - дополнительный класс для input (опционально)
+//-   value - значение поля (опционально)
+//-   id - id поля (если не указан, используется name)
+//-   withIcon - добавить иконку поиска (default: false)
+
+mixin form-input(name, type = "text", label = null, placeholder = null, required = false, groupClass = "", inputClass = "", value = null, id = null, withIcon = false)
+  - var inputId = id || name
+  - var groupClasses = groupClass ? `form-group ${groupClass}` : 'form-group'
+  - var inputClasses = inputClass ? `form-control ${inputClass}` : 'form-control'
+  - var wrapperClasses = withIcon ? 'form-input-wrapper form-input-wrapper--icon' : 'form-input-wrapper'
+  
+  div.mb-4(class=groupClasses)
+    if label
+      label.form-label(for=inputId)= label
+        if required
+          span.text-danger *
+    div(class=wrapperClasses)
+      if withIcon
+        i.fas.fa-search.form-input__icon
+      input(
+        type=type
+        id=inputId
+        name=name
+        class=inputClasses
+        placeholder=placeholder
+        value=value
+        required=required
+      )
+

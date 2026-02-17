@@ -1,0 +1,13 @@
+//- Year select (nice-select)
+//- Дизайн Figma node-id=134-1662: капсула, розовый фон, белый текст и стрелка
+//- Использование: +year-select({ years: [2025, 2024, 2023], current: 2025, name: 'year' })
+mixin year-select(options)
+  - options = options || {}
+  - const years = options.years || [2025, 2024, 2023]
+  - const current = options.current != null ? options.current : years[0]
+  - const name = options.name || 'year'
+  - const id = options.id || 'year-select'
+  .year-select-wrap
+    select.year-select.form-select(name=name id=id data-nice-select aria-label="Select year")
+      each y in years
+        option(value=y selected=(y === current))= y

@@ -1,0 +1,40 @@
+//- Form Select Mixin - универсальный компонент выпадающего списка
+//- Usage:
+//-   +form-select('country', 'Страна', [
+//-     {value: '', text: 'Выберите страну'},
+//-     {value: 'az', text: 'Азербайджан'},
+//-     {value: 'ru', text: 'Россия'}
+//-   ], true)
+//-
+//- Parameters:
+//-   name - имя поля (обязательно)
+//-   label - текст метки (опционально)
+//-   options - массив объектов {value, text} для опций (обязательно)
+//-   required - обязательное поле (default: false)
+//-   groupClass - дополнительный класс для .form-group (опционально)
+//-   selectClass - дополнительный класс для select (опционально)
+//-   selectedValue - выбранное значение (опционально)
+//-   id - id поля (если не указан, используется name)
+
+mixin form-select(name, label = null, options = [], required = false, groupClass = "", selectClass = "", selectedValue = null, id = null)
+  - var selectId = id || name
+  - var groupClasses = groupClass ? `form-group ${groupClass}` : 'form-group'
+  - var selectClasses = selectClass ? `form-select ${selectClass}` : 'form-select'
+  
+  div(class=groupClasses)
+    if label
+      label.form-label(for=selectId)= label
+        if required
+          span.text-danger *
+    select.mb-4(
+      id=selectId
+      name=name
+      class=selectClasses
+      required=required
+    )
+      each option in options
+        if option.value === selectedValue
+          option(value=option.value selected)= option.text
+        else
+          option(value=option.value)= option.text
+

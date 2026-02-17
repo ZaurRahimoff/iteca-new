@@ -1,0 +1,97 @@
+extends ../layouts/default
+
+include ../mixins/_title
+
+block variables
+  - var pageTitle = 'Career - CEO'
+  - var pageDescription = 'Join the Caspian Event Organisers team. Explore career opportunities and become part of our dynamic team in Azerbaijan.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.career-hero
+    .container
+      .career-hero__content
+        +title('Career', 'h1')
+
+  // Career Banner Section
+  section.career-banner
+    .container
+      .row.align-items-center
+        .col-12.col-lg-9.order-2.order-md-1
+          h2.career-banner__title Become  a part of our team!
+        .col-12.col-lg-3.order-1.order-md-2.h-auto
+          .career-banner__image.justify-content-center.text-center.d-flex
+            .career-banner__image-photo
+              img(src="assets/img/webp/testimonial2.webp" alt="Join our team" loading="eager")
+            .career-banner__image-deco
+              svg(xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none")
+                path(d="M49.9683 37.5905V0L12.3916 0.000793457L0 12.3954L37.5914 12.3266L37.5758 50.0317L49.9683 37.5905Z" fill="#E40A66")
+
+  // Career Content Section
+  section.career-section
+    .container
+      // Introduction
+      p.career-intro
+        | Caspian Event Organisers company offers a huge range of exciting and challenging opportunities. With more than a handful of different departments within the company, there is a job for you depending on your interests, skills or qualifications. We are interested in hiring talented and motivated individuals who share in the vision of the company. Please forward your CV on 
+        a(href="mailto:cv@ceo.az") cv@ceo.az
+        |  if you are interested in joining our team of dedicated people.
+
+      // Job Vacancy 1: Sales Manager
+      article.career-job
+        h3.career-job__title — Caspian Event Organisers LLC is seeking candidates for the full-time position of Sales Manager.
+
+        .career-job__section
+          h4.career-job__heading Job Description:
+          ul.career-job__list
+            li Organize sales through phone calls with local and international client databases
+            li Conduct meetings with clients
+            li Build and maintain relationships with potential and existing clients
+            li Negotiate and finalize contracts
+            li Sell additional services (sponsorship packages, marketing services)
+            li Prepare project (exhibition) concepts
+            li Develop sales materials
+            li Manage sales databases
+            li Promote projects (prepare and update corporate website content, organize supporting events, direct mail and email campaigns)
+            li Collect payments
+            li Coordinate work with marketing, technical, and administrative departments
+            li Prepare exhibition reports
+
+        .career-job__section
+          h4.career-job__heading Skills and Qualifications:
+          ul.career-job__list
+            li Project management, planning, verbal and written communication
+            li Process improvement and problem-solving
+            li Strong analytical and reporting skills
+            li Ability to work under pressure and meet deadlines
+            li Strategic and creative thinking
+
+        .career-job__section
+          h4.career-job__heading Requirements:
+          ul.career-job__list
+            li Fluency in Azerbaijani, English, and Russian (both written and spoken)
+            li Excellent communication and presentation skills
+            li Dynamic, outgoing, and results-oriented personality
+            li Proven experience in a similar position
+            li Proficiency in MS Office (Word, Excel, Internet, etc.)
+            li Willingness to travel within Azerbaijan and abroad
+            li Strong understanding of customer and market dynamics
+            li Enterprising, target-driven, and highly motivated
+            li Honest, respectful, and customer-oriented
+            li Stress-resistant with excellent organizational and time management skills
+            li Analytical mindset with attention to detail
+            li Flexible, cooperative, and team-oriented
+            li Hardworking, energetic, and disciplined
+
+      // Job Vacancy 2: Database and Registration Specialist
+      article.career-job
+        h3.career-job__title — Database and Registration Specialist
+
+      // Contact Information
+      .career-contact
+        h4.career-contact__title Contact information:
+        p.career-contact__text
+          | Tel: +99412 404 10 00
+          br
+          | E-mail: 
+          a(href="mailto:cv@ceo.az") cv@ceo.az

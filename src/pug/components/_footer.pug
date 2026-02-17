@@ -1,0 +1,101 @@
+//- Footer
+footer.footer
+  .footer__content
+    .container
+      .footer__top
+        .footer__logo-group
+          img.footer__logo(src="assets/img/welcome/ceo-logo.svg" alt="CEO Logo" loading="lazy")
+          p.footer__logo-text Caspian Event Organisers LLC
+        .footer__right
+          .footer__social
+            a.footer__social-link(href="#" aria-label="Instagram")
+              i.fab.fa-instagram
+            a.footer__social-link(href="#" aria-label="LinkedIn")
+              i.fab.fa-linkedin
+            a.footer__social-link(href="#" aria-label="YouTube")
+              i.fab.fa-youtube
+            a.footer__social-link(href="#" aria-label="Telegram")
+              i.fab.fa-telegram
+            a.footer__social-link(href="#" aria-label="Twitter")
+              i.fab.fa-twitter
+            a.footer__social-link(href="#" aria-label="Facebook")
+              i.fab.fa-facebook
+          .footer__divider-vertical
+          .footer__lang
+            span.footer__lang-item.footer__lang-item--active AZE
+            span.footer__lang-item RU
+            span.footer__lang-item ENG
+      .footer__divider
+      .footer__main
+        .row.gx-5
+          .col-12.col-md-5.footer__section
+            h3.footer__section-title About
+            p.footer__section-text
+              | Caspian Event Organisers LLC offers wide range of services for congresses, conferences and meetings including planning, project organisation and on-site management. In addition, our company is providing services in organisation of participation at exhibitions, running advertising campaigns, accommodation services, organising official ceremonies
+          .col-12.col-md-4.footer__section.d-flex.justify-content-md-center
+            .d-flex.flex-column.align-items-center
+              button.footer__section-toggle.d-md-none(
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#quickLinkCollapse"
+                aria-expanded="false"
+                aria-controls="quickLinkCollapse"
+              )
+                h3.footer__section-title Quick link
+                i.far.fa-chevron-down.footer__section-icon
+              h3.footer__section-title.d-none.d-md-block.w-100.text-start Quick link
+              .collapse.footer__collapse.d-md-block#quickLinkCollapse
+                .footer__links
+                  a.footer__link(href="about.html") About us
+                  .footer__link-item
+                    button.footer__link-toggle(
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#exhibitionsCollapse"
+                      aria-expanded="false"
+                      aria-controls="exhibitionsCollapse"
+                    )
+                      span Exhibitions
+                      i.far.fa-chevron-down.footer__submenu-icon
+                    .collapse.footer__submenu#exhibitionsCollapse
+                      .footer__submenu-links
+                        a.footer__submenu-link(href="#") Baku Energy Week
+                        a.footer__submenu-link(href="#") Caspian Agro
+                        a.footer__submenu-link(href="#") ADEX
+                  a.footer__link(href="partners.html") Partners
+                  a.footer__link(href="#") Career
+                  a.footer__link(href="contact.html") Contacts
+          .col-12.col-md-3.footer__section
+            h3.footer__section-title Contact us
+            .footer__contacts
+              .footer__contact-item
+                i.fal.fa-phone
+                a.footer__contact-link(href="tel:+994124041001") +994 12 404 10 01
+              .footer__contact-item
+                i.fal.fa-phone
+                a.footer__contact-link(href="tel:+994552241000") +994 55 224 10 00
+              .footer__contact-item
+                i.fal.fa-envelope
+                a.footer__contact-link(href="mailto:office@ceo.az") office@ceo.az
+              .footer__contact-item
+                i.fal.fa-location-dot
+                span.footer__contact-text Azerbaijan, Baku, Narimanov dist., 61, Zaur Nudiraliyev st.
+  .footer__bottom
+    .container
+      .row.align-items-center.g-3.g-md-2
+        .col-12.col-md-3.order-1.order-md-1
+          a.footer__link.text__white(href="#") Terms & Conditions
+
+        .col-10.col-md-4.order-2.order-md-2.text-center
+          a.footer__developed(href="#")
+            span.footer__developed-text Developed by
+            .footer__developed-logo
+              img(src="assets/img/welcome/era-logo.svg" alt="ERA Digital Agency" loading="lazy")
+
+        .col-12.col-md-4.order-4.order-md-3
+          .footer__right
+            p.footer__copyright 1999 - 2025 © Iteca Caspian LLC 
+        .col-2.col-md-1.order-3.order-md-4
+          .d-flex.justify-content-end
+            button.footer__scroll-top(type="button" aria-label="Scroll to top")
+              i.far.fa-chevrons-up

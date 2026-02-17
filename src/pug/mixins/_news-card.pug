@@ -1,0 +1,23 @@
+//- Миксин карточки новости
+//- @param {object} data - Объект с данными новости
+//-   - image: путь к изображению
+//-   - title: заголовок новости
+//-   - date: дата публикации
+//-   - link: ссылка на новость
+//-   - variant: вариант отображения: 'large' (большая), 'medium' (средняя), 'small' (маленькая)
+
+mixin news-card(data)
+  - var variant = data.variant || 'medium'
+  - var cardClass = 'card news-card'
+  - cardClass += ' news-card--' + variant
+  
+  article(class=cardClass)
+    a.news-card__link(href=data.link)
+    img.card-img(src=data.image alt=data.title loading="lazy")
+    .card-img-overlay.news-card__overlay
+      .news-card__content
+        h3.news-card__title.card-title= data.title
+        if data.date
+          .news-card__date
+            i.fas.fa-calendar
+            time(datetime=data.date)= data.date

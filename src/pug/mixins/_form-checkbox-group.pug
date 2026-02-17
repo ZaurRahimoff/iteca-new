@@ -1,0 +1,40 @@
+//- Form Checkbox Group Mixin - компонент для группы чекбоксов
+//- Usage:
+//-   +form-checkbox-group('interests', 'Interests', [
+//-     {value: 'sport', label: 'Sport'},
+//-     {value: 'music', label: 'Music'}
+//-   ], true)
+//-
+//- Parameters:
+//-   name - имя поля (обязательно, будет использоваться как name="name[]")
+//-   label - текст метки группы (опционально)
+//-   options - массив объектов {value, label} для чекбоксов (обязательно)
+//-   required - обязательное поле (default: false)
+//-   groupClass - дополнительный класс для .form-group (опционально)
+//-   checkboxClass - дополнительный класс для контейнера чекбоксов (опционально)
+
+mixin form-checkbox-group(name, label = null, options = [], required = false, groupClass = "", checkboxClass = "")
+	- var groupClasses = groupClass ? `form-group ${groupClass}` : 'form-group'
+	- var checkboxClasses = checkboxClass ? `form-checkbox-group ${checkboxClass}` : 'form-checkbox-group'
+	
+	div(class=groupClasses)
+		if label
+			.form-checkbox-group__header
+				label.form-label.form-label--group(for=`${name}_group`)= label
+					if required
+						span.text-danger *
+				.form-checkbox-group__caret
+					i.far.fa-caret-down
+		.form-checkbox-group__divider
+		div(class=checkboxClasses)
+			each option, index in options
+				- var checkboxId = `${name}_${index}`
+				.form-check-item
+					input.form-check-input(
+						type="checkbox"
+						id=checkboxId
+						name=`${name}[]`
+						value=option.value
+						required=required
+					)
+					label.form-check-label(for=checkboxId)= option.label

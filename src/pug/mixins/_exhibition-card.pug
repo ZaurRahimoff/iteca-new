@@ -1,0 +1,36 @@
+//- Миксин карточки выставки для календаря
+//- @param {object} data - Объект с данными выставки
+//-   - logo: путь к логотипу
+//-   - title: название выставки
+//-   - date: дата проведения
+//-   - website: URL сайта
+//-   - showButtons: показывать ли кнопки (по умолчанию true)
+
+mixin exhibition-card(data)
+  - var showButtons = data.showButtons !== false
+  .col
+    .card.ex-card.border-0.shadow-sm.h-100
+      .row.g-0.h-100
+        .col-12.col-md-4.col-lg-3
+          .ex-logo.d-flex.align-items-center.justify-content-center.h-100
+            img.img-fluid(src=data.logo alt=data.title loading="lazy")
+        .col-12.col-md-8.col-lg-9
+          .card-body.ex-content.d-flex.flex-column.flex-md-row.align-items-center.justify-content-between.h-100.px-0.pb-0.px-md-3.py-md-3
+            .ex-info.flex-grow-1
+              h3.ex-title.card-title= data.title
+              .d-flex.flex-column.flex-md-row.align-items-start.align-items-md-end.justify-content-between
+                .ex-meta
+                  .ex-date.d-flex.align-items-center.lh-base
+                    i.fal.fa-clock
+                    span= data.date
+                  .ex-website.d-flex.align-items-center.lh-base
+                    i.fal.fa-globe
+                    a(href=data.website target="_blank" rel="noopener noreferrer")= data.website
+                if showButtons
+                  .ex-actions.d-flex.flex-row.flex-md-row.mt-2.mt-md-0
+                    if data.showStandButton !== false
+                      +button('Stand reservation', 'outline', 'button', '#', '', 'fas fa-billboard')
+                    if data.showTicketButton !== false
+                      +button('Get the ticket', 'outline', 'button', '#', '', 'fas fa-ticket')
+                    if data.showSponsorButton
+                      +button('Become a sponsor', 'outline', 'button', '#', '', 'fas fa-star')

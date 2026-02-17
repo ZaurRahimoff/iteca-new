@@ -1,0 +1,131 @@
+// Заголовки секций с подчеркиванием
+// БЭМ: .title, .title__heading, .title__line
+
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  .title {
+    margin: 0;
+    line-height: normal;
+  }
+
+  &.exhibitions--header {
+    @media (max-width: 992px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  }
+
+  .header__controls {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    @include md-down {
+      gap: 15px;
+    }
+
+    .calendar-text {
+      font-family: var(--font-family);
+      font-size: var(--font-size-title1);
+      font-weight: var(--font-weight-regular);
+      color: var(--gray);
+      margin: 0;
+    }
+
+    .year-select,
+    .download-btn {
+      height: 30px;
+      padding: 0 10px;
+      background-color: var(--primary);
+      border-radius: 8px;
+      color: var(--white);
+      font-size: var(--font-size-body);
+      font-weight: var(--font-weight-regular);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-base);
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      i {
+        font-size: 16px;
+      }
+    }
+
+    .header-link {
+      font-family: var(--font-family);
+      font-size: var(--font-size-title1);
+      font-weight: var(--font-weight-regular);
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition-base);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+  margin: 0 auto;
+
+  &__heading {
+    font-family: var(--font-family);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-semibold);
+    color: var(--text);
+    line-height: normal;
+    margin: 0;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--secondary);
+    margin-top: 5px;
+  }
+
+  // &__line {
+  //   width: 100px;
+  //   height: 3px;
+  //   background-color: var(--primary);
+  // }
+
+  // Модификаторы размера
+  &--small {
+    .title__heading {
+      font-size: var(--font-size-h4);
+    }
+
+    .title__line {
+      width: 45px;
+    }
+  }
+
+  &--large {
+    .title__heading {
+      font-size: var(--font-size-h1);
+    }
+
+    .title__line {
+      width: 200px;
+    }
+  }
+}

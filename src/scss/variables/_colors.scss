@@ -1,0 +1,50 @@
+// Цвета проекта
+// Синхронизировано с Figma Design System
+
+// Основные цвета бренда
+$primary: #293892;
+$secondary: #eb6a05;
+
+// Цвета текста
+$text: #00093e;
+$text-2: #08051d;
+$gray: #999999;
+
+// Фоновые цвета
+$background: #f8f9fa;
+$card: #f3f3f3;
+$line: #eeeeee;
+
+// Базовые цвета
+$white: #ffffff;
+$black: #000000;
+
+// Тени
+$shadow-30: rgba(0, 0, 0, 0.3);
+$shadow-70: rgba(0, 0, 0, 0.7);
+
+// Системные цвета
+$error: #dc3545;
+$success: #28a745;
+$warning: #ffc107;
+$info: #17a2b8;
+
+// Карта цветов для генерации CSS-переменных
+$colors-map: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "text": $text,
+  "text-2": $text-2,
+  "gray": $gray,
+  "background": $background,
+  "card": $card,
+  "line": $line,
+  "white": $white,
+  "black": $black,
+  "shadow-30": $shadow-30,
+  "shadow-70": $shadow-70,
+  "error": $error,
+  "success": $success,
+  "warning": $warning,
+  "info": $info
+);

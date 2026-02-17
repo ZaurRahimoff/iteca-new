@@ -1,0 +1,108 @@
+// Partners Page Styles
+// Страница партнёров
+
+// Hero Section
+.partners-hero {
+  padding: 25px 0 50px;
+
+  @media (max-width: 768px) {
+    padding: 20px 0 30px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// Partners Section
+.partners-section {
+  padding: 0 0 100px;
+
+  @media (max-width: 768px) {
+    padding: 0 0 50px;
+  }
+}
+
+// Partner Card (короткие БЭМ-имена)
+.partners-card {
+  &.card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: transparent;
+    border-radius: 8px;
+    overflow: visible;
+    transition: var(--transition-base);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+
+    .partners-link {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .partners-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 17px 34px;
+    height: 355px;
+    background-color: var(--card);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+
+    @media (max-width: 768px) {
+      padding: 17px 24px;
+      height: 280px;
+    }
+  }
+
+  .partners-image {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      width: 150px;
+      height: 150px;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: darken;
+    }
+  }
+
+  .partners-title {
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-1);
+    line-height: normal;
+    text-align: center;
+    margin: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+      height: auto;
+      min-height: 30px;
+    }
+  }
+}

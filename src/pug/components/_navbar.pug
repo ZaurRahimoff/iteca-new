@@ -1,0 +1,109 @@
+//- Навигация
+nav.navbar
+  .container.px-0.px-md-3
+    .navbar__content
+      // Бургер-меню (только мобильная)
+      button.navbar__burger(type="button" aria-label="Menu")
+        span.navbar__burger-line
+        span.navbar__burger-line
+        span.navbar__burger-line
+      
+      // Логотип
+      a.navbar__logo(href="/")
+        img(src="assets/img/welcome/ceo-logo.svg" alt="CEO Logo" loading="lazy")
+      
+      // Десктоп меню
+      .navbar__menu
+        - var isAboutPage = typeof navbarStyle !== 'undefined' && navbarStyle === 'white'
+        a.navbar__link(href="about-company.html" class=isAboutPage ? 'navbar__link--active' : '') WHO WE ARE
+        .navbar__item.navbar__item--dropdown
+          a.navbar__link(href="#")
+            | MEDIA CENTER
+            i.far.fa-chevron-down
+          .navbar__dropdown
+            a.navbar__dropdown-item(href="news.html") News
+            a.navbar__dropdown-item(href="photo-albums.html") Photo
+            a.navbar__dropdown-item(href="video-albums.html") Video
+            a.navbar__dropdown-item(href="newspaper.html") Newspaper
+            a.navbar__dropdown-item(href="media.html") We are in media
+        .navbar__item.navbar__item--dropdown
+          a.navbar__link(href="#")
+            | OUR PARTNERS
+            i.far.fa-chevron-down
+          .navbar__dropdown
+            a.navbar__dropdown-item(href="partners.html") Partners
+            a.navbar__dropdown-item(href="sponsors.html") Sponsors
+            a.navbar__dropdown-item(href="references.html") References
+        a.navbar__link(href="career.html") CAREER
+        a.navbar__link(href="contact.html") CONTACT
+      
+      // Десктоп переключатель языка
+      .navbar__lang-dropdown
+        button.navbar__lang-toggle(type="button")
+          .lang-flag
+            span.fi.fi-az
+          i.fal.fa-chevron-down
+        .navbar__lang-list
+          a.navbar__lang-item.navbar__lang-item--active(href="#" data-lang="az")
+            .lang-flag
+              span.fi.fi-az
+            span AZ
+          a.navbar__lang-item(href="#" data-lang="en")
+            .lang-flag
+              span.fi.fi-gb
+            span EN
+          a.navbar__lang-item(href="#" data-lang="ru")
+            .lang-flag
+              span.fi.fi-ru
+            span RU
+  
+  // Мобильное меню overlay
+  .navbar__mobile
+    .navbar__mobile-header
+      .navbar__mobile-logo
+        img(src="assets/img/welcome/ceo-logo.svg" alt="CEO Logo" loading="lazy")
+      button.navbar__mobile-close(type="button" aria-label="Close")
+        i.far.fa-times
+    
+    .navbar__mobile-lang
+      button.navbar__mobile-lang-btn.navbar__mobile-lang-btn--active(type="button")
+        img.navbar__mobile-lang-flag(src="assets/plugins/flags/flags/4x3/az.svg" alt="AZ")
+        span AZ
+      button.navbar__mobile-lang-btn(type="button")
+        img.navbar__mobile-lang-flag(src="assets/plugins/flags/flags/4x3/gb.svg" alt="EN")
+        span EN
+      button.navbar__mobile-lang-btn(type="button")
+        img.navbar__mobile-lang-flag(src="assets/plugins/flags/flags/4x3/ru.svg" alt="RU")
+        span RU
+    
+    .navbar__mobile-menu
+      .navbar__mobile-item
+        a.navbar__mobile-link(href="about-company.html") Who we are
+      
+      .navbar__mobile-item.navbar__mobile-item--dropdown
+        .navbar__mobile-link-wrapper
+          span.navbar__mobile-link Media center
+          button.navbar__mobile-toggle(type="button" aria-label="Toggle submenu")
+            i.far.fa-chevron-down
+        .navbar__mobile-submenu
+          a.navbar__mobile-submenu-item.navbar__mobile-submenu-item--active(href="news.html") News
+          a.navbar__mobile-submenu-item(href="photo-gallery.html") Photo
+          a.navbar__mobile-submenu-item(href="video-gallery.html") Video
+          a.navbar__mobile-submenu-item(href="newspaper.html") Newspaper
+          a.navbar__mobile-submenu-item(href="#") We are in media
+      
+      .navbar__mobile-item.navbar__mobile-item--dropdown
+        .navbar__mobile-link-wrapper
+          span.navbar__mobile-link Our partners
+          button.navbar__mobile-toggle(type="button" aria-label="Toggle submenu")
+            i.far.fa-chevron-down
+        .navbar__mobile-submenu
+          a.navbar__mobile-submenu-item(href="partners.html") Partners
+          a.navbar__mobile-submenu-item(href="#") Sponsors
+          a.navbar__mobile-submenu-item(href="#") References
+      
+      .navbar__mobile-item
+        a.navbar__mobile-link(href="career.html") Career
+      
+      .navbar__mobile-item
+        a.navbar__mobile-link(href="contact.html") Contact

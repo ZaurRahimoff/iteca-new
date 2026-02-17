@@ -1,0 +1,12 @@
+//- Миксин заголовка секции с подчеркиванием
+//- @param {string} text - Текст заголовка
+//- @param {string} level - Уровень заголовка: 'h1', 'h2', 'h3' (по умолчанию 'h2')
+//- @param {string} modifier - Дополнительный модификатор БЭМ
+
+mixin title(text, level='h2', modifier=null)
+  - var titleClass = 'title'
+  - if (modifier) titleClass += ' ' + titleClass + '--' + modifier
+  
+  div(class=titleClass)
+    #{level}(class=`${titleClass}__heading`)= text
+    .title__line

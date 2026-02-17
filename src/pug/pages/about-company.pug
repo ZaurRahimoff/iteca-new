@@ -1,0 +1,73 @@
+extends ../layouts/default
+
+include ../mixins/_title
+include ../mixins/_social-sidebar
+
+block variables
+  - var pageTitle = 'About Company - CEO'
+  - var pageDescription = 'Caspian Event Organisers (CEO) holds a leading position in organising exhibitions and conferences in Azerbaijan.'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Title
+  section.about-hero
+    .container
+      .about-hero__content
+        +title('COMPANY DESCRIPTION', 'h1')
+
+  // Hero Image Section
+  section.about-image-section
+    .container.g-0.g-md-4
+      .about-image
+        img.about-image__img(src="assets/img/webp/welcome/about1.webp" alt="Company Description" loading="eager")
+
+  // Description Section
+  section.about-description
+    .container
+      .about-description__content.page-content
+        h3 dfdsfsdfdsfsdfds
+        p Caspian Event Organisers (CEO) holds a leading position in organising exhibitions and conferences in Azerbaijan. Since its establishment in 2014, it has become a key player in the congress and exhibition industry, actively developing both national and international brands such as ADEX, Caspian Agro, Rebuild Karabakh, TransLogistica Caspian, Medinex, and others. Today, the company's portfolio includes more than 10 specialised annual events. The President of the Republic of Azerbaijan, Mr. Ilham Aliyev, has consistently shown support for these exhibitions over the years, visiting the events and meeting with participants. The exhibitions are supported by relevant government agencies.
+        p The company upholds high standards of organisation and professionalism, as evidenced by the support of international organisations such as UFI (The Global Association of the Exhibition Industry) and ICCA (International Congress and Convention Association). Caspian Event Organisers is also a member of the Azerbaijan Exhibition Organisers Association (ASTA), further solidifying its status as a reliable partner in the field of exhibitions and conferences.
+        p Exhibitions organised by Caspian Event Organisers help strengthen business connections, facilitate technology exchange, and promote economic growth in the region. They provide platforms for interaction between representatives of various industries and contribute to enhancing international cooperation.
+
+  // Company Info Section with Image
+  section.about-company-info
+    .container
+      .row.align-items-center.gx-0.gx-md-5
+        .col-12.col-lg-6
+          .about-company-info__content
+            +title('CASPIAN EVENT ORGANISERS', 'h2')
+            p.about-company-info__text
+              | Caspian Event Organisers (CEO) holds a leading position in organising exhibitions and conferences in Azerbaijan. Since its establishment in 2014, it has become a key player in the congress and exhibition industry, actively developing both national and international brands such as ADEX, Caspian Agro, Rebuild Karabakh, TransLogistica Caspian, Medinex, and others. Today, the company's portfolio includes more than 10 specialised annual events. The President of the Republic of Azerbaijan, Mr. Ilham Aliyev, has consistently shown support for these exhibitions over the years, visiting the events and meeting with participants. The exhibitions are supported by relevant government agencies.
+        .col-12.col-lg-6.gx-0.gx-md-4
+          .about-company-info__image-wrapper
+            .about-company-info__image-bg
+            .about-company-info__image
+              img(src="assets/img/webp/welcome/about1.webp" alt="Caspian Event Organisers" loading="lazy")
+
+  // Statistics Section
+  section.about-statistics
+    .container
+      .about-statistics__wrapper
+        .row.row-cols-1.row-cols-md-3.g-3.g-md-5.statistics
+          .col
+            .statistics__item.d-flex.flex-row.align-items-center.justify-content-start.gap-4.p-3
+              .statistics__icon.ms-2
+                i.fal.fa-suitcase
+              .statistics__content.align-items-start.gap-2
+                .statistics__number.mt-2.mt-md-0 50+
+                .statistics__label Projects
+          .col
+            .statistics__item.d-flex.flex-row.align-items-center.justify-content-start.gap-4.p-3
+              .statistics__icon.ms-2
+                i.fal.fa-users
+              .statistics__content.align-items-start.gap-2
+                .statistics__number.mt-2.mt-md-0 70+
+                .statistics__label Professional Staff
+          .col
+            .statistics__item.d-flex.flex-row.align-items-center.justify-content-start.gap-4.p-3
+              .statistics__icon.ms-2
+                i.fal.fa-trophy
+              .statistics__content.align-items-start.gap-2
+                .statistics__number.mt-2.mt-md-0 250+
+                .statistics__label Partners and Clients

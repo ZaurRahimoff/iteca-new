@@ -1,0 +1,147 @@
+// Header
+// БЭМ: .header
+
+.header {
+  position: relative;
+  width: 100%;
+
+  // Модификатор для прозрачного navbar (главная страница)
+  &--transparent {
+    .navbar {
+      position: absolute;
+
+      &__content {
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(2px);
+        border-bottom: none;
+      }
+
+      .navbar__link {
+        color: var(--white);
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .navbar__lang-toggle {
+        color: var(--white);
+      }
+
+      .navbar__burger-line {
+        background-color: var(--white);
+      }
+
+      .navbar__dropdown-item {
+        // &:first-child {
+        //   background-color: var(--primary);
+        //   color: var(--white);
+        // }
+      }
+
+      @media (max-width: 768px) {
+        &__content {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+
+  // Модификатор для белого navbar (страницы без hero)
+  &--white {
+    .navbar {
+      position: relative;
+
+      &__content {
+        background-color: var(--white);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .navbar__link {
+        color: var(--text);
+
+        &:hover {
+          color: var(--primary);
+          opacity: 1;
+        }
+      }
+
+      // Активная ссылка
+      .navbar__link--active {
+        font-weight: var(--font-weight-semibold);
+        color: var(--primary);
+      }
+
+      .navbar__lang-toggle {
+        color: var(--primary);
+
+        i {
+          color: var(--primary);
+        }
+      }
+
+      .navbar__burger-line {
+        background-color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        &__content {
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+
+  // Модификатор для скролла (применяется через JS)
+  &--scrolled {
+    .navbar {
+      position: fixed;
+
+      &__content {
+        background-color: var(--white);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar__link {
+        color: var(--text);
+
+        &:hover {
+          color: var(--primary);
+          opacity: 1;
+        }
+      }
+
+      .navbar__link--active {
+        color: var(--primary);
+      }
+
+      .navbar__lang-toggle {
+        color: var(--primary);
+
+        i {
+          color: var(--primary);
+        }
+      }
+
+      .navbar__burger-line {
+        background-color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        &__content {
+          background-color: var(--white);
+        }
+      }
+    }
+
+    // Для прозрачных header добавляем паддинг чтобы контент не прыгал
+    &.header--transparent {
+      // padding-top: 90px;
+
+      @media (max-width: 768px) {
+        padding-top: 80px;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+node_modules/
+lighthouse/
+.cache/
+.DS_Store
+*.log
+.env
+.env.local
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+package-lock.json
+yarn.lock

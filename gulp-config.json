@@ -1,0 +1,23 @@
+{
+  "colors": {
+    "primary": "#000000",
+    "secondary": "#6c757d",
+    "gray": "#adb5bd",
+    "background": "#ffffff"
+  },
+  "typography": {
+    "baseFont": "Montserrat, sans-serif",
+    "fallbackFont": "Arial, sans-serif",
+    "googleFont": "Montserrat"
+  },
+  "borderRadius": "4px",
+  "containerWidth": "1200px",
+  "libraries": {
+    "bootstrap": false,
+    "fontAwesome": false,
+    "swiper": false,
+    "jquery": false,
+    "gsap": false
+  },
+  "device": "desktop"
+}

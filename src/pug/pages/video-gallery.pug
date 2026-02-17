@@ -1,0 +1,63 @@
+extends ../layouts/default
+
+include ../mixins/_pagination
+
+block variables
+  - var pageTitle = '1st AZERBAIJAN INTERNATIONAL INVESTMENT FORUM - Photo Gallery - CEO'
+  - var pageDescription = 'Photo gallery from 1st AZERBAIJAN INTERNATIONAL INVESTMENT FORUM organized by Caspian Event Organisers (CEO).'
+  - var navbarStyle = 'white'
+
+block content
+  // Hero Section with Event Title
+  section.photo-gallery-hero
+    .container
+      .photo-gallery-hero__content
+        h1.photo-gallery-hero__title.me-auto 1st AZERBAIJAN INTERNATIONAL INVESTMENT FORUM
+
+  // Video Gallery Grid Section
+  section.video-gallery-section
+    .container
+      .row.g-4.video-gallery-grid
+        // Row 1
+        .col-12.col-md-6.col-lg-3
+          article.video-item.card.h-100.border-0
+            a.item-link(href="https://www.youtube.com/watch?v=wfsTGsXGKvE" data-fancybox="video-gallery" data-caption="Photo from 1st Azerbaijan International Investment Forum")
+            .item-image.position-relative
+              img.card-img(src="assets/img/webp/welcome/photo-slide1.webp" alt="Photo from 1st Azerbaijan International Investment Forum" loading="lazy")
+              .item-overlay
+                i.fal.fa-play.overlay-icon
+        .col-12.col-md-6.col-lg-3
+          article.video-item.card.h-100.border-0
+            a.item-link(href="https://www.youtube.com/watch?v=wfsTGsXGKvE" data-fancybox="video-gallery" data-caption="Photo from 1st Azerbaijan International Investment Forum")
+            .item-image.position-relative
+              img.card-img(src="assets/img/webp/welcome/photo-slide2.webp" alt="Photo from 1st Azerbaijan International Investment Forum" loading="lazy")
+              .item-overlay
+                i.fal.fa-play.overlay-icon
+        .col-12.col-md-6.col-lg-3
+          article.video-item.card.h-100.border-0
+            a.item-link(href="https://www.youtube.com/watch?v=wfsTGsXGKvE" data-fancybox="video-gallery" data-caption="Photo from 1st Azerbaijan International Investment Forum")
+            .item-image.position-relative
+              img.card-img(src="assets/img/webp/welcome/photo-slide3.webp" alt="Photo from 1st Azerbaijan International Investment Forum" loading="lazy")
+              .item-overlay
+                i.fal.fa-play.overlay-icon
+        .col-12.col-md-6.col-lg-3
+          article.video-item.card.h-100.border-0
+            a.item-link(href="https://www.youtube.com/watch?v=wfsTGsXGKvE" data-fancybox="video-gallery" data-caption="Photo from 1st Azerbaijan International Investment Forum")
+            .item-image.position-relative
+              img.card-img(src="assets/img/webp/welcome/photo-slide4.webp" alt="Photo from 1st Azerbaijan International Investment Forum" loading="lazy")
+              .item-overlay
+                i.fal.fa-play.overlay-icon
+
+
+  // Pagination Section
+  section.pb-4.pb-md-5
+    .container
+      .row
+        .col-12
+          +pagination({
+            currentPage: 1,
+            totalPages: 10,
+            prevText: 'Əvvəl',
+            nextText: 'Sonra',
+            showDivider: false
+          })

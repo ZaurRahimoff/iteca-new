@@ -1,0 +1,483 @@
+extends ../layouts/default
+
+include ../mixins/_button
+include ../mixins/_title
+include ../mixins/_year-select
+include ../mixins/_exhibition-card
+include ../mixins/_news-card
+include ../mixins/_partner-card
+include ../mixins/_testimonial-card
+include ../mixins/_contact-item
+
+block variables
+  - var pageTitle = 'CEO - Caspian Event Organisers'
+  - var pageDescription = 'Caspian Event Organisers (CEO) holds a leading position in organising exhibitions and conferences in Azerbaijan.'
+  - var navbarStyle = 'transparent'
+
+block content
+  // Hero Section - Slider
+  section.hero-slider.swiper
+    .swiper-wrapper
+      // Slide 1
+      .swiper-slide.hero-slider__slide
+        .hero-slider__image(data-swiper-parallax="-300")
+          img(src="assets/img/webp/welcome/hero-bg.webp" alt="CEO Events & Exhibitions" loading="eager")
+        .hero-slider__overlay
+        //- .hero-slider__content
+        //-   .container
+        //-     .hero-slider__subtitle(data-swiper-parallax="-200") Welcome to CEO
+        //-     h1.hero-slider__title(data-swiper-parallax="-100") Caspian Event Organisers
+        //-     p.hero-slider__description(data-swiper-parallax="-50") Leading the way in international exhibitions and conferences in Azerbaijan. Creating memorable events that connect businesses and foster innovation.
+        //-     a.hero-slider__button(href="about-company.html") Discover More
+
+      // Slide 2
+      .swiper-slide.hero-slider__slide
+        .hero-slider__image(data-swiper-parallax="-300")
+          img(src="assets/img/webp/welcome/about1.webp" alt="Professional Events" loading="lazy")
+        .hero-slider__overlay
+        //- .hero-slider__content
+        //-   .container
+        //-     .hero-slider__subtitle(data-swiper-parallax="-200") Our Expertise
+        //-     h1.hero-slider__title(data-swiper-parallax="-100") Professional Event Management
+        //-     p.hero-slider__description(data-swiper-parallax="-50") Over 10 specialized annual events including ADEX, Caspian Agro, and Baku Energy Week. Supported by government agencies and international partners.
+        //-     a.hero-slider__button(href="exhibitions.html") View Events
+
+      // Slide 3
+      .swiper-slide.hero-slider__slide
+        .hero-slider__image(data-swiper-parallax="-300")
+          img(src="assets/img/webp/welcome/photo-slide1.webp" alt="Innovation Forum" loading="lazy")
+        .hero-slider__overlay
+        //- .hero-slider__content
+        //-   .container
+        //-     .hero-slider__subtitle(data-swiper-parallax="-200") Join Us
+        //-     h1.hero-slider__title(data-swiper-parallax="-100") Shaping the Future Together
+        //-     p.hero-slider__description(data-swiper-parallax="-50") Become part of Azerbaijan's premier platform for international business dialogue, innovation, and sustainable development.
+        //-     a.hero-slider__button(href="contact.html") Contact Us
+
+    // Navigation
+    .hero-slider__nav-prev
+      i.fal.fa-chevron-left
+    .hero-slider__nav-next
+      i.fal.fa-chevron-right
+
+    // Pagination
+    .hero-slider__pagination
+
+    // Progress Bar (optional)
+    .hero-slider__progress
+      .hero-slider__progress-bar
+
+  //- Old Static Hero (commented out)
+  //- section.hero
+  //-   .hero__image
+  //-     img(src="assets/img/webp/welcome/hero-bg.webp" alt="CEO Hero" loading="eager")
+  //-   .hero__overlay
+
+  // Statistics Section
+  section.statistics-section
+    .container
+      .row.row-cols-3.row-cols-md-3.gx-0.gx-md-5.statistics
+        .col
+          .statistics__item
+            .statistics__icon
+              i.fal.fa-suitcase
+            .statistics__content
+              .statistics__number.mt-2.mt-md-0 50+
+              .statistics__label.d-none.d-md-block Projects
+        .col
+          .statistics__item
+            .statistics__icon
+              i.fal.fa-users
+            .statistics__content
+              .statistics__number.mt-2.mt-md-0 70+
+              .statistics__label.d-none.d-md-block Professional Staff
+        .col
+          .statistics__item
+            .statistics__icon
+              i.fal.fa-trophy
+            .statistics__content
+              .statistics__number.mt-2.mt-md-0 250+
+              .statistics__label.d-none.d-md-block Partners and Clients
+
+  // Exhibition Calendar Section
+  section.exhibition-calendar-section
+    .container
+      .exhibition-calendar
+        .section__header.exhibitions--header
+          +title('Exhibition Calendar', 'h2').mx-0
+          .exhibition-calendar__controls
+            +button('Download the programme', 'outline', 'download', '#', '', 'fal fa-download')
+            .exhibition-calendar__year-select
+              +year-select({ years: [2025, 2024, 2023], current: 2025, name: 'exhibition-year', id: 'exhibition-year' })
+        .exhibition-calendar__list
+          .row.row-cols-1.row-cols-md-1.row-cols-lg-1.g-4
+            +exhibition-card({
+              logo: 'assets/img/webp/event1.webp',
+              title: '2nd International Exhibition and Conference for Water Management',
+              date: '10 - 12 September 2025',
+              website: 'www.bakuwaterweek.az',
+              showButtons: true
+            })
+            +exhibition-card({
+              logo: 'assets/img/webp/event2.webp',
+              title: 'Azerbaijan Halal Business Forum',
+              date: '2025',
+              website: 'www.azhabforum.az',
+              showButtons: true,
+              showStandButton: false,
+              showTicketButton: false,
+              showSponsorButton: true
+            })
+            +exhibition-card({
+              logo: 'assets/img/webp/event3.webp',
+              title: '30th Anniversary Azerbaijan International Construction Exhibition',
+              date: '14 - 16 October 2025',
+              website: 'www.bakubuild.az',
+              showButtons: true
+            })
+            +exhibition-card({
+              logo: 'assets/img/webp/event4.webp',
+              title: '17th International Exhibition for Heating, Ventilation, Air-Conditioning, Water Supply, Sanitary and Swimming Pool',
+              date: '14 - 16 October 2025',
+              website: 'www.aquatherm.az',
+              showButtons: true
+            })
+            +exhibition-card({
+              logo: 'assets/img/webp/event5.webp',
+              title: '5th Anniversary Azerbaijan International Restoration, Reconstruction and Development of Karabakh Exhibition',
+              date: '14 - 16 October 2025',
+              website: 'www.rebuildkarabakh.az',
+              showButtons: true
+            })
+            +exhibition-card({
+              logo: 'assets/img/webp/event6.webp',
+              title: '4th Caspian International Plastics and Polymers Industry Exhibition',
+              date: '14 - 16 October 2025',
+              website: 'www.plastex.az',
+              showButtons: true
+            })
+            +exhibition-card({
+              logo: 'assets/img/webp/event7.webp',
+              title: '13th Caspian International Road Infrastructure and Public Transport Exhibition',
+              date: '14 - 16 October 2025',
+              website: 'www.roadtraffic.az',
+              showButtons: true
+            })
+            +exhibition-card({
+              logo: 'assets/img/webp/event8.webp',
+              title: '27th Azerbaijan International Medical Innovations Exhibition',
+              date: '30 October - 1 November 2025',
+              website: 'www.medinex.az',
+              showButtons: true
+            })
+
+  // About Section
+  section.about-section
+    .container
+      .row.align-items-center.g-4.g-md-4.about
+        .col-12.col-lg-6
+            .section__header
+              +title('CASPIAN EVENT ORGANISERS', 'h2')
+            .about__text Caspian Event Organisers (CEO) holds a leading position in organising exhibitions and conferences in Azerbaijan. Since its establishment in 2014, it has become a key player in the congress and exhibition industry, actively developing both national and international brands such as ADEX, Caspian Agro, Rebuild Karabakh, TransLogistica Caspian, Medinex, and others. Today, the company's portfolio includes more than 10 specialised annual events. The President of the Republic of Azerbaijan, Mr. Ilham Aliyev, has consistently shown support for these exhibitions over the years, visiting the events and meeting with participants. The exhibitions are supported by relevant government agencies.
+            a.about__link(href="about-company.html") Read more
+        .col-12.col-lg-6.gx-0.gx-md-4
+          .card.h-100.border-0.about__image
+            img.card-img(src="assets/img/webp/welcome/about1.webp" alt="About CEO" loading="lazy")
+
+  // Testimonials Section
+  section.testimonials
+    .container
+      .section__header
+        +title('Testimonials', 'h2')
+        .testimonials__controls.swiper--controls
+          button.swiper-prev.testimonials__nav-prev#testimonials__nav-prev(type="button" aria-label="Previous")
+            i.fal.fa-arrow-left
+          button.swiper-next.testimonials__nav-next#testimonials__nav-next(type="button" aria-label="Next")
+            i.fal.fa-arrow-right
+    .testimonials-section
+      img.bg-image(src="assets/img/webp/welcome/testimonials-bg.webp" alt="Testimonials Background" loading="lazy")
+      .testimonials__slider#testimonials.swiper.overflow-hidden(
+          data-swiper
+          data-swiper-autoplay="true"
+          data-swiper-breakpoints='{"320":{"slidesPerView":1,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":20},"992":{"slidesPerView":3,"spaceBetween":20},"1200":{"slidesPerView":2.5,"spaceBetween": 20,"centeredSlides": true, "roundLengths": true},"1440":{"slidesPerView":3,"spaceBetween": 20,"centeredSlides": true, "roundLengths": true}}'
+          data-swiper-space="20"
+          data-swiper-loop="true"
+        )
+        .swiper-wrapper
+          .swiper-slide.h-auto
+            +testimonial-card({
+              image: 'assets/img/webp/testimonial3.webp',
+              name: 'John Anderson',
+              position: 'CEO at Innovate Solutions',
+              text: '"Their attention to detail and creative design approach transformed our website into a visually stunning and highly functional platform. We\'ve seen a 30% increase in traffic since the relaunch. I highly recommend them to anyone seeking professional web design services!"'
+            })
+          .swiper-slide.h-auto
+            +testimonial-card({
+              image: 'assets/img/webp/testimonial2.webp',
+              name: 'Ilham Aliyev',
+              position: 'The President of the Republic of Azerbaijan',
+              text: 'Addressing a wide range of topics, from traditional energy sources to renewable energy, Baku Energy Week has gained recognition as an authoritative forum where new approaches and international energy dialogue are shaped.'
+            })
+          .swiper-slide.h-auto
+            +testimonial-card({
+              image: 'assets/img/webp/testimonial3.webp',
+              name: 'John Anderson',
+              position: 'CEO at Innovate Solutions',
+              text: '"Their attention to detail and creative design approach transformed our website into a visually stunning and highly functional platform. We\'ve seen a 30% increase in traffic since the relaunch. I highly recommend them to anyone seeking professional web design services!"'
+            })
+          .swiper-slide.h-auto
+            +testimonial-card({
+              image: 'assets/img/webp/testimonial2.webp',
+              name: 'John Anderson',
+              position: 'CEO at Innovate Solutions',
+              text: '"Their attention to detail and creative design approach transformed our website into a visually stunning and highly functional platform. We\'ve seen a 30% increase in traffic since the relaunch. I highly recommend them to anyone seeking professional web design services!"'
+            })
+          .swiper-slide.h-auto
+            +testimonial-card({
+              image: 'assets/img/webp/testimonial3.webp',
+              name: 'Ilham Aliyev',
+              position: 'The President of the Republic of Azerbaijan',
+              text: 'Addressing a wide range of topics, from traditional energy sources to renewable energy, Baku Energy Week has gained recognition as an authoritative forum where new approaches and international energy dialogue are shaped.'
+            })
+          .swiper-slide.h-auto
+            +testimonial-card({
+              image: 'assets/img/webp/testimonial2.webp',
+              name: 'John Anderson',
+              position: 'CEO at Innovate Solutions',
+              text: '"Their attention to detail and creative design approach transformed our website into a visually stunning and highly functional platform. We\'ve seen a 30% increase in traffic since the relaunch. I highly recommend them to anyone seeking professional web design services!"'
+            })
+
+
+  // News Section
+  section.news-section
+    .container
+      .news
+        .section__header
+          +title('News', 'h2')
+          .header__controls
+            a.header-link(href="news.html") See All
+            .vr.h-100.d-flex.align-items-center.my-auto.d-md-none
+            .news__controls.swiper--controls.d-flex.align-items-center.justify-content-end.d-md-none
+              button.swiper-prev.news__nav-prev#news__nav-prev(type="button" aria-label="Previous")
+                i.fal.fa-arrow-left
+              button.swiper-next.news__nav-next#news__nav-next(type="button" aria-label="Next")
+                i.fal.fa-arrow-right
+        .news__slider#news.swiper.container.overflow-hidden(
+          data-swiper
+          data-grid-lg="true"
+          data-grid-md="true"
+          data-grid-sm="false"
+          data-grid="false"
+          data-swiper-breakpoints='{"320":{"slidesPerView":1,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":20}}'
+          data-swiper-space="20"
+          data-swiper-loop="true"
+        )
+          .swiper-wrapper.news__grid.row.g-4
+            .col-12.col-md-6.col-lg-6.swiper-slide
+              +news-card({
+                image: 'assets/img/webp/news1.webp',
+                title: 'An Important Water Management Event Approaches – Baku to Host Water Week in September',
+                date: '27 August, 2024',
+                link: 'news-details.html',
+                variant: 'large'
+              })
+            .col-12.col-md-6.col-lg-6.swiper-slide
+              +news-card({
+                image: 'assets/img/webp/news2.webp',
+                title: 'Write Bet The press conference of 30th Anniversary Baku Energy Week was heldter CSS By Borrowing Ideas From JavaScript Functions',
+                date: '27 August, 2024',
+                link: 'news-details.html',
+                variant: 'medium'
+              })
+            .col-12.col-md-6.col-lg-4.swiper-slide
+              +news-card({
+                image: 'assets/img/webp/news3.webp',
+                title: 'China-Azerbaijan: A New Impulse',
+                date: '27 August, 2024',
+                link: 'news-details.html',
+                variant: 'small'
+              })
+            .col-12.col-md-6.col-lg-4.swiper-slide
+              +news-card({
+                image: 'assets/img/webp/news4.webp',
+                title: 'Innovations and Trends: Azerbaijan`s International Exhibitions',
+                date: '27 August, 2024',
+                link: 'news-details.html',
+                variant: 'small'
+              })
+            .col-12.col-md-6.col-lg-4.swiper-slide
+              +news-card({
+                image: 'assets/img/webp/news5.webp',
+                title: 'Baku Water Week to Be Held in September',
+                date: '27 August, 2024',
+                link: 'news-details.html',
+                variant: 'small'
+              })
+
+  // Photo Section
+  section.photo-section
+    .container
+      .photo
+        .section__header
+          +title('Photo', 'h2')
+          .header__controls
+            a.header-link(href="photo-gallery.html") See All
+            .vr.h-100.d-flex.align-items-center.my-auto.d-md-none
+            .photo__controls.swiper--controls.d-flex.align-items-center.justify-content-end.d-md-none
+              button.swiper-prev#photo__nav-prev(type="button" aria-label="Previous")
+                i.fal.fa-arrow-left
+              button.swiper-next#photo__nav-next(type="button" aria-label="Next")
+                i.fal.fa-arrow-right         
+        .photo__slider#photo.swiper.container.overflow-hidden(
+          data-swiper
+          data-grid-lg="true"
+          data-grid-md="true"
+          data-grid-sm="false"
+          data-grid="false"
+          data-swiper-breakpoints='{"320":{"slidesPerView":1,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":20}}'
+          data-swiper-space="20"
+          data-swiper-loop="true"
+        )
+          .swiper-wrapper.photo__grid.row.g-3
+            .col-12.col-md-6.col-lg-8.swiper-slide
+              .card.h-100.border-0.photo__card
+                .card-img-wrapper.position-relative.overflow-hidden(style="height: 320px;")
+                  img.card-img(src="assets/img/webp/welcome/photo-slide1.webp" alt="III NATIONAL URBAN FORUM OF AZERBAIJAN" loading="lazy" style="object-fit: cover; height: 100%;")
+                  .card-img-overlay.d-flex.align-items-end.p-3
+                    h6.card-title.text-white.mb-0.photo__title III NATIONAL URBAN FORUM OF AZERBAIJAN
+            .col-12.col-md-6.col-lg-4.swiper-slide
+              .card.h-100.border-0.photo__card
+                .card-img-wrapper.position-relative.overflow-hidden(style="height: 320px;")
+                  img.card-img(src="assets/img/webp/welcome/photo-slide2.webp" alt="1st AZERBAIJAN INTERNATIONAL INVESTMENT FORUM" loading="lazy" style="object-fit: cover; height: 100%;")
+                  .card-img-overlay.d-flex.align-items-end.p-3
+                    h6.card-title.text-white.mb-0.photo__title 1st AZERBAIJAN INTERNATIONAL INVESTMENT FORUM
+            .col-12.col-md-6.col-lg-5.swiper-slide
+              .card.h-100.border-0.photo__card
+                .card-img-wrapper.position-relative.overflow-hidden(style="height: 320px;")
+                  img.card-img(src="assets/img/webp/welcome/photo-slide3.webp" alt="CRITICAL INFRASTRUCTURE DEFENCE CHALLENGE 2025" loading="lazy" style="object-fit: cover; height: 100%;")
+                  .card-img-overlay.d-flex.align-items-end.p-3
+                    h6.card-title.text-white.mb-0.photo__title CRITICAL INFRASTRUCTURE DEFENCE CHALLENGE 2025
+            .col-12.col-md-6.col-lg-5.swiper-slide
+              .card.h-100.border-0.photo__card
+                .card-img-wrapper.position-relative.overflow-hidden(style="height: 320px;")
+                  img.card-img(src="assets/img/webp/welcome/photo-slide4.webp" alt="Qatari Cultural Week" loading="lazy" style="object-fit: cover; height: 100%;")
+                  .card-img-overlay.d-flex.align-items-end.p-3
+                    h6.card-title.text-white.mb-0.photo__title Qatari Cultural Week
+            .col-12.col-md-6.col-lg-2.swiper-slide
+              .card.h-100.border-0.photo__card
+                .card-img-wrapper.position-relative.overflow-hidden(style="height: 320px;")
+                  img.card-img(src="assets/img/webp/welcome/photo-slide1.webp" alt="CRITICAL INFRASTRUCTURE DEFENCE CHALLENGE 2025" loading="lazy" style="object-fit: cover; height: 100%;")
+                  .card-img-overlay.d-flex.align-items-end.p-3
+                    h6.card-title.text-white.mb-0.photo__title CRITICAL INFRASTRUCTURE DEFENCE CHALLENGE 2025
+
+  // Proud Members Section
+  section.members-section
+    .container
+      .members
+        .section__header
+          +title('Proud members of', 'h2').mx-0
+        .members__slider#members.swiper.container.overflow-hidden(
+          data-swiper
+          data-grid-lg="true"
+          data-grid-md="true"
+          data-grid-sm="false"
+          data-grid="false"
+          data-swiper-breakpoints='{"320":{"slidesPerView":1.5,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":20}}'
+          data-swiper-space="20"
+          data-swiper-loop="true"
+        )
+          .row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-4.swiper-wrapper.pb-3.pb-md-0
+            .col.swiper-slide
+              .card.h-100.border-0.members__card.w-100
+                .members__logo
+                  img(src="assets/img/webp/members1.webp" alt="ASTA" loading="lazy")
+                .members__website
+                  i.fas.fa-globe
+                  a(href="https://www.asta.az" target="_blank" rel="noopener noreferrer") www.asta.az
+            .col.swiper-slide
+              .card.h-100.border-0.members__card.w-100
+                .members__logo
+                  img(src="assets/img/webp/members2.webp" alt="UFI" loading="lazy")
+                .members__website
+                  i.fas.fa-globe
+                  a(href="https://www.ufi.org" target="_blank" rel="noopener noreferrer") www.ufi.org
+            .col.swiper-slide
+              .card.h-100.border-0.members__card.w-100
+                .members__logo
+                  img(src="assets/img/webp/members3.webp" alt="ICCA" loading="lazy")
+                .members__website
+                  i.fas.fa-globe
+                  a(href="https://www.iccaworld.org" target="_blank" rel="noopener noreferrer") www.iccaworld.org
+          .swiper-pagination.swiper--pagination.d-md-none 
+
+  // Partners Section
+  section.partners-section
+    .container
+      .partners
+        .section__header
+          +title('Partners', 'h2')
+          .header__controls
+            .partners__controls.swiper--controls.d-flex.align-items-center.justify-content-end
+              button.swiper-prev#partners__nav-prev(type="button" aria-label="Previous")
+                i.fal.fa-arrow-left
+              button.swiper-next#partners__nav-next(type="button" aria-label="Next")
+                i.fal.fa-arrow-right         
+        .partners__slider#partners.swiper.overflow-hidden(
+          data-swiper
+          data-autoplay="true"
+          data-swiper-breakpoints='{"320":{"slidesPerView":1.5,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":20},"992":{"slidesPerView":3,"spaceBetween":20},"1200":{"slidesPerView":5,"spaceBetween": 20},"1440":{"slidesPerView":6,"spaceBetween": 20}}'
+          data-swiper-space="20"
+          data-swiper-loop="true"
+        )
+          .swiper-wrapper
+            .swiper-slide
+              +partner-card({logo: 'assets/img/webp/partner1.webp', name: 'Partner 1'})
+            .swiper-slide
+              +partner-card({logo: 'assets/img/webp/partner2.webp', name: 'Partner 2'})
+            .swiper-slide
+              +partner-card({logo: 'assets/img/webp/partner3.webp', name: 'Partner 3'})
+            .swiper-slide
+              +partner-card({logo: 'assets/img/webp/partner4.webp', name: 'Partner 4'})
+            .swiper-slide
+              +partner-card({logo: 'assets/img/webp/partner5.webp', name: 'Partner 5'})
+            .swiper-slide
+              +partner-card({logo: 'assets/img/webp/partner1.webp', name: 'Partner 6'})
+
+  // Contact Section
+  section.contact-section
+    .container
+      .contact
+        .row
+          .col-12.col-md-7
+            .contact__map
+              iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d803.9544405133813!2d49.854827699999994!3d40.412827799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6d96a7a0e5%3A0xe466794cc2f694fc!2sCaspian%20Event%20Organisers%20(CEO)!5e1!3m2!1sru!2saz!4v1769457051983!5m2!1sru!2saz" width="700" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+              .contact__address-card
+                .contact__address-icon
+                  i.fal.fa-map-marker-alt
+                .contact__address-content
+                  h4.contact__address-title Office address
+                  p.contact__address-text Azerbaijan, Baku, Narimanov dist., 61, Zaur Nudiraliyev st.
+          .col-12.col-md-5
+            .row.g-4
+              .col-12.col-md-12
+                +contact-item({
+                  icon: 'fal fa-clock',
+                  title: 'Office hours',
+                  value: 'Monday - Friday (09:00 - 18:00)'
+                })
+              .col-12.col-md-12  
+                +contact-item({
+                  icon: 'fal fa-envelope',
+                  title: 'Email',
+                  value: 'reception@iteca.az',
+                  link: 'mailto:reception@iteca.az'
+                })
+              .col-12.col-md-12
+                +contact-item({
+                  icon: 'fal fa-phone',
+                  title: 'Phone number',
+                  value: [
+                    { text: '+994 12 404 10 00', link: 'tel:+994 12 404 10 00' },
+                    { text: '+994 55 224 10 00', link: 'tel:+994 55 224 10 00' }
+                  ]
+                })

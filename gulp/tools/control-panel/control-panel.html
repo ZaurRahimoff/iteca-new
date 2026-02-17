@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control Panel - Gulp Project Manager</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    #app { display: flex; height: 100vh; overflow: hidden; }
+    
+    /* Sidebar */
+    .sidebar { width: 280px; background: #1e1e1e; color: #fff; overflow-y: auto; }
+    .sidebar-header { padding: 20px; border-bottom: 1px solid #333; }
+    .sidebar-header h1 { font-size: 18px; margin-bottom: 10px; }
+    .sidebar-section { padding: 15px 20px; border-bottom: 1px solid #333; }
+    .sidebar-section h3 { font-size: 14px; margin-bottom: 10px; color: #888; text-transform: uppercase; }
+    
+    /* Pages List */
+    .pages-list { list-style: none; }
+    .page-item { padding: 8px 12px; cursor: pointer; border-radius: 4px; margin-bottom: 4px; }
+    .page-item:hover { background: #333; }
+    .page-item.active { background: #007bff; }
+    
+    /* Top Bar */
+    .topbar { height: 60px; background: #2d2d2d; border-bottom: 1px solid #333; display: flex; align-items: center; padding: 0 20px; }
+    .viewport-switcher { display: flex; gap: 10px; }
+    .viewport-btn { padding: 8px 16px; background: #444; border: none; color: #fff; cursor: pointer; border-radius: 4px; }
+    .viewport-btn.active { background: #007bff; }
+    
+    /* Main Content */
+    .main-content { flex: 1; display: flex; flex-direction: column; }
+    .preview-container { flex: 1; position: relative; background: #fff; }
+    #preview-frame { width: 100%; height: 100%; border: none; }
+    
+    /* Constructor Panel */
+    .constructor-panel { width: 320px; background: #252526; color: #fff; overflow-y: auto; border-left: 1px solid #333; }
+    .panel-section { padding: 20px; border-bottom: 1px solid #333; }
+    .panel-section h3 { font-size: 14px; margin-bottom: 15px; color: #888; text-transform: uppercase; }
+    
+    /* Form Controls */
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; font-size: 12px; color: #ccc; }
+    .form-group input, .form-group select { width: 100%; padding: 8px; background: #3c3c3c; border: 1px solid #555; color: #fff; border-radius: 4px; }
+    .form-group input[type="color"] { height: 40px; cursor: pointer; }
+    
+    .library-item { display: flex; align-items: center; justify-content: space-between; padding: 10px; background: #3c3c3c; border-radius: 4px; margin-bottom: 8px; }
+    .library-item input[type="checkbox"] { cursor: pointer; }
+    
+    .btn { padding: 10px 20px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+    .btn:hover { background: #0056b3; }
+    .btn:disabled { background: #555; cursor: not-allowed; }
+    
+    .loading { opacity: 0.5; pointer-events: none; }
+    .message { padding: 10px; margin: 10px 0; border-radius: 4px; position: fixed; top: 20px; right: 20px; z-index: 10000; min-width: 300px; }
+    .message.success { background: #28a745; color: #fff; }
+    .message.error { background: #dc3545; color: #fff; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>🎨 Control Panel</h1>
+        <p style="font-size: 12px; color: #888;">Gulp Project Manager</p>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3>📄 Страницы</h3>
+        <ul class="pages-list" id="pages-list">
+          <li class="page-item">Загрузка...</li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3>🧩 Конструктор</h3>
+        <div class="form-group">
+          <input type="text" id="component-name" placeholder="Имя компонента" style="margin-bottom: 10px;">
+          <select id="component-snippet" style="margin-bottom: 10px;">
+            <option value="">Базовый</option>
+            <option value="button">Кнопка</option>
+            <option value="card">Карточка</option>
+            <option value="header">Header</option>
+            <option value="footer">Footer</option>
+            <option value="navbar">Navbar</option>
+          </select>
+          <button class="btn" onclick="createComponent()">Создать компонент</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="topbar">
+        <div class="viewport-switcher">
+          <button class="viewport-btn" data-device="mobile" onclick="setViewport('mobile')">📱 Mobile (375px)</button>
+          <button class="viewport-btn" data-device="tablet" onclick="setViewport('tablet')">📱 Tablet (768px)</button>
+          <button class="viewport-btn active" data-device="desktop" onclick="setViewport('desktop')">💻 Desktop (1440px)</button>
+        </div>
+        <div style="margin-left: auto; display: flex; gap: 10px;">
+          <button class="btn" onclick="loadConfig()">🔄 Обновить</button>
+        </div>
+      </div>
+      
+      <div class="preview-container">
+        <iframe id="preview-frame" src="/index.html"></iframe>
+      </div>
+    </div>
+    
+    <!-- Constructor Panel -->
+    <div class="constructor-panel">
+      <div class="panel-section">
+        <h3>📚 Библиотеки</h3>
+        <div id="libraries-list"></div>
+      </div>
+      
+      <div class="panel-section">
+        <h3>🎨 Цвета</h3>
+        <div class="form-group">
+          <label>Primary</label>
+          <input type="color" id="color-primary" onchange="updateColor('primary', this.value)">
+        </div>
+        <div class="form-group">
+          <label>Secondary</label>
+          <input type="color" id="color-secondary" onchange="updateColor('secondary', this.value)">
+        </div>
+        <div class="form-group">
+          <label>Gray</label>
+          <input type="color" id="color-gray" onchange="updateColor('gray', this.value)">
+        </div>
+        <div class="form-group">
+          <label>Background</label>
+          <input type="color" id="color-background" onchange="updateColor('background', this.value)">
+        </div>
+        <button class="btn" onclick="saveColors()">💾 Сохранить цвета</button>
+      </div>
+      
+      <div class="panel-section">
+        <h3>🔤 Типографика</h3>
+        <div class="form-group">
+          <label>Google Font</label>
+          <select id="font-select" onchange="updateFont(this.value)">
+            <option value="">Выберите шрифт...</option>
+          </select>
+        </div>
+        <button class="btn" onclick="loadFonts()">Загрузить Google Fonts</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const API_URL = '/api';
+    
+    // Загрузка страниц
+    async function loadPages() {
+      try {
+        const res = await fetch(`${API_URL}/pages`);
+        const data = await res.json();
+        const list = document.getElementById('pages-list');
+        list.innerHTML = '';
+        
+        // Добавляем control-panel как первую опцию (опционально - может показывать сам себя)
+        const controlPanelItem = document.createElement('li');
+        controlPanelItem.className = 'page-item';
+        controlPanelItem.textContent = 'control-panel';
+        controlPanelItem.onclick = () => {
+          loadPage('/control-panel.html');
+          document.querySelectorAll('.page-item').forEach(item => item.classList.remove('active'));
+          controlPanelItem.classList.add('active');
+        };
+        list.appendChild(controlPanelItem);
+        
+        if (!data.pages || data.pages.length === 0) {
+          if (list.children.length === 1) {
+            list.innerHTML += '<li class="page-item" style="color: #888; cursor: default;">Страницы проекта не найдены</li>';
+          }
+          return;
+        }
+        
+        data.pages.forEach(page => {
+          const li = document.createElement('li');
+          li.className = 'page-item';
+          li.textContent = page.name || page.path || page;
+          li.onclick = () => {
+            const url = page.url || `/${page.path || page}`;
+            loadPage(url);
+            document.querySelectorAll('.page-item').forEach(item => item.classList.remove('active'));
+            li.classList.add('active');
+          };
+          list.appendChild(li);
+        });
+        
+        // Загружаем первую страницу проекта (не control-panel)
+        if (data.pages.length > 0) {
+          const firstPage = data.pages[0];
+          loadPage(firstPage.url || `/${firstPage.path || firstPage}`);
+          // Активируем первую страницу проекта (не control-panel)
+          Array.from(list.children).slice(1)[0]?.classList.add('active');
+        } else {
+          // Если нет страниц проекта, показываем control-panel сам себя
+          loadPage('/control-panel.html');
+          list.firstChild.classList.add('active');
+        }
+      } catch (err) {
+        console.error('Ошибка загрузки страниц:', err);
+        showMessage('Ошибка загрузки страниц: ' + err.message, 'error');
+      }
+    }
+    
+    function loadPage(url) {
+      document.getElementById('preview-frame').src = url;
+    }
+    
+    // Viewport switching
+    async function setViewport(device) {
+      try {
+        const res = await fetch(`${API_URL}/viewport`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ device })
+        });
+        
+        if (!res.ok) throw new Error('Ошибка изменения viewport');
+        
+        document.querySelectorAll('.viewport-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        const btn = document.querySelector(`[data-device="${device}"]`);
+        if (btn) btn.classList.add('active');
+        
+        // Изменение размера iframe
+        const frame = document.getElementById('preview-frame');
+        const sizes = {
+          mobile: { width: '375px', height: '667px' },
+          tablet: { width: '768px', height: '1024px' },
+          desktop: { width: '100%', height: '100%' }
+        };
+        Object.assign(frame.style, sizes[device]);
+        frame.style.margin = '0 auto';
+        frame.style.display = 'block';
+        
+        showMessage(`Viewport изменён на ${device}`, 'success');
+      } catch (err) {
+        console.error('Ошибка изменения viewport:', err);
+        showMessage('Ошибка: ' + err.message, 'error');
+      }
+    }
+    
+    // Загрузка конфигурации
+    async function loadConfig() {
+      try {
+        const res = await fetch(`${API_URL}/config`);
+        if (!res.ok) throw new Error('Ошибка загрузки конфигурации');
+        const config = await res.json();
+        
+        // Установка цветов
+        if (config.colors) {
+          document.getElementById('color-primary').value = config.colors.primary || '#007bff';
+          document.getElementById('color-secondary').value = config.colors.secondary || '#6c757d';
+          document.getElementById('color-gray').value = config.colors.gray || '#adb5bd';
+          document.getElementById('color-background').value = config.colors.background || '#ffffff';
+        }
+        
+        // Загрузка библиотек
+        if (config.libraries) {
+          loadLibraries(config.libraries);
+        }
+        
+        // Установка текущего viewport
+        const currentDevice = config.device || 'desktop';
+        document.querySelectorAll('.viewport-btn').forEach(btn => {
+          btn.classList.remove('active');
+        });
+        const currentBtn = document.querySelector(`[data-device="${currentDevice}"]`);
+        if (currentBtn) currentBtn.classList.add('active');
+        
+        showMessage('Конфигурация загружена', 'success');
+      } catch (err) {
+        console.error('Ошибка загрузки конфигурации:', err);
+        showMessage('Ошибка загрузки конфигурации: ' + err.message, 'error');
+      }
+    }
+    
+    // Загрузка библиотек
+    function loadLibraries(libraries) {
+      const libs = {
+        bootstrap: 'Bootstrap',
+        fontAwesome: 'Font Awesome',
+        swiper: 'Swiper',
+        jquery: 'jQuery',
+        gsap: 'GSAP'
+      };
+      
+      const container = document.getElementById('libraries-list');
+      container.innerHTML = '';
+      
+      Object.entries(libs).forEach(([key, name]) => {
+        const div = document.createElement('div');
+        div.className = 'library-item';
+        div.innerHTML = `
+          <label style="cursor: pointer;">
+            <input type="checkbox" ${libraries[key] ? 'checked' : ''} onchange="toggleLibrary('${key}', this.checked)">
+            ${name}
+          </label>
+        `;
+        container.appendChild(div);
+      });
+    }
+    
+    // Переключение библиотеки
+    async function toggleLibrary(name, enabled) {
+      try {
+        const action = enabled ? 'install' : 'uninstall';
+        const res = await fetch(`${API_URL}/library/${name}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action })
+        });
+        
+        if (!res.ok) throw new Error('Ошибка переключения библиотеки');
+        
+        const data = await res.json();
+        showMessage(data.message || `Библиотека ${name} ${enabled ? 'установлена' : 'удалена'}`, 'success');
+      } catch (err) {
+        showMessage('Ошибка: ' + err.message, 'error');
+      }
+    }
+    
+    // Обновление цвета
+    function updateColor(name, value) {
+      // Live preview можно добавить здесь
+    }
+    
+    // Сохранение цветов
+    async function saveColors() {
+      try {
+        const colors = {
+          primary: document.getElementById('color-primary').value,
+          secondary: document.getElementById('color-secondary').value,
+          gray: document.getElementById('color-gray').value,
+          background: document.getElementById('color-background').value
+        };
+        
+        const res = await fetch(`${API_URL}/config`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ colors })
+        });
+        
+        if (!res.ok) throw new Error('Ошибка сохранения');
+        
+        showMessage('Цвета сохранены! Перезапустите сборку.', 'success');
+      } catch (err) {
+        showMessage('Ошибка: ' + err.message, 'error');
+      }
+    }
+    
+    // Загрузка Google Fonts
+    async function loadFonts() {
+      try {
+        const res = await fetch(`${API_URL}/fonts`);
+        if (!res.ok) throw new Error('Ошибка загрузки шрифтов');
+        
+        const data = await res.json();
+        const select = document.getElementById('font-select');
+        
+        // Очищаем список
+        select.innerHTML = '<option value="">Выберите шрифт...</option>';
+        
+        if (data.fonts && data.fonts.length > 0) {
+          data.fonts.slice(0, 50).forEach(font => {
+            const option = document.createElement('option');
+            option.value = font.family || font;
+            option.textContent = font.family || font;
+            select.appendChild(option);
+          });
+          showMessage('Google Fonts загружены!', 'success');
+        }
+      } catch (err) {
+        showMessage('Ошибка загрузки шрифтов: ' + err.message, 'error');
+      }
+    }
+    
+    async function updateFont(fontFamily) {
+      if (!fontFamily) return;
+      
+      try {
+        const res = await fetch(`${API_URL}/font`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fontFamily })
+        });
+        
+        if (!res.ok) throw new Error('Ошибка сохранения шрифта');
+        
+        const data = await res.json();
+        showMessage(data.message || `Шрифт ${fontFamily} сохранен`, 'success');
+      } catch (err) {
+        showMessage('Ошибка: ' + err.message, 'error');
+      }
+    }
+    
+    // Создание компонента
+    async function createComponent() {
+      const blockName = document.getElementById('component-name').value;
+      const snippetType = document.getElementById('component-snippet').value;
+      
+      if (!blockName) {
+        showMessage('Введите имя компонента', 'error');
+        return;
+      }
+      
+      try {
+        const res = await fetch(`${API_URL}/component`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ blockName, snippetType })
+        });
+        
+        if (!res.ok) throw new Error('Ошибка создания компонента');
+        
+        const data = await res.json();
+        showMessage(data.message || 'Компонент создан!', 'success');
+        document.getElementById('component-name').value = '';
+      } catch (err) {
+        showMessage('Ошибка: ' + err.message, 'error');
+      }
+    }
+    
+    function showMessage(text, type) {
+      const msg = document.createElement('div');
+      msg.className = `message ${type}`;
+      msg.textContent = text;
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 3000);
+    }
+    
+    // Инициализация
+    loadPages();
+    loadConfig();
+  </script>
+</body>
+</html>
+

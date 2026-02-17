@@ -1,0 +1,47 @@
+//- Pagination Mixin
+//- @param {Object} options - Pagination configuration
+//- @param {Number} options.currentPage - Current active page number
+//- @param {Number} options.totalPages - Total number of pages
+//- @param {String} [options.prevText='After'] - Text for previous button
+//- @param {String} [options.nextText='Before'] - Text for next button
+//- @param {Boolean} [options.showDivider=true] - Show divider line above pagination
+mixin pagination(options)
+	- var currentPage = options.currentPage || 1
+	- var totalPages = options.totalPages || 10
+	- var prevText = options.prevText || 'After'
+	- var nextText = options.nextText || 'Before'
+	- var showDivider = options.showDivider !== false
+
+	//- Divider (optional)
+	if showDivider
+		.hr__divider.d-none.d-md-block.my-4
+
+	//- Pagination
+	.pagination
+		button.pagination__btn.pagination__btn--prev(type="button")
+			i.fas.fa-arrow-left
+			span= prevText
+		.pagination__numbers
+			-
+				var pages = [];
+				if (totalPages <= 7) {
+					for (var i = 1; i <= totalPages; i++) {
+						pages.push(i);
+					}
+				} else {
+					if (currentPage <= 4) {
+						pages = [1, 2, 3, 4, '...', totalPages];
+					} else if (currentPage >= totalPages - 3) {
+						pages = [1, '...', totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+					} else {
+						pages = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages];
+					}
+				}
+			each page in pages
+				if page === '...'
+					span.pagination__dots ...
+				else
+					button.pagination__number(type="button" class=(page === currentPage ? 'active' : ''))= page
+		button.pagination__btn.pagination__btn--next(type="button")
+			span= nextText
+			i.fas.fa-arrow-right

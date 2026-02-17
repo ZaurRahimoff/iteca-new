@@ -1,0 +1,70 @@
+// Media Page Styles
+// Страница "Мы в СМИ"
+
+// Hero Section
+.media-hero {
+  padding: 25px 0 50px;
+
+  @media (max-width: 768px) {
+    padding: 20px 0 30px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+// Media Section
+.media-section {
+  padding: 0 0 100px;
+
+  @media (max-width: 768px) {
+    padding: 0 0 50px;
+  }
+}
+
+// Media Card (короткие БЭМ-имена)
+.media-card {
+  &.card {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition-base);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 17px 34px;
+
+    @media (max-width: 768px) {
+      padding: 17px 24px;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .media-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 100%;
+    min-height: 320px;
+
+    @media (max-width: 768px) {
+      min-height: 280px;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: darken;
+    }
+  }
+}

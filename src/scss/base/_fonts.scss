@@ -1,0 +1,231 @@
+// Автоматическая генерация @font-face для всех шрифтов проекта
+// Использует миксин font-face из mixins/_font-face.scss
+
+// Базовый путь к шрифтам
+$fonts-path: '../assets/fonts';
+
+// Map со всеми вариантами шрифтов
+// Структура: (имя-файла: (family: 'FontFamily', weight: 400, style: normal))
+$fonts-map: (
+  // AntennaComp
+  'AntennaComp-Bold': (
+    family: 'AntennaComp',
+    weight: bold,
+    style: normal
+  ),
+  'AntennaComp-ExtraLight': (
+    family: 'AntennaComp',
+    weight: 200,
+    style: normal
+  ),
+  'AntennaComp-Medium': (
+    family: 'AntennaComp',
+    weight: 500,
+    style: normal
+  ),
+  'AntennaComp-Black': (
+    family: 'AntennaComp',
+    weight: 900,
+    style: normal
+  ),
+  'AntennaComp-ExtraLightItalic': (
+    family: 'AntennaComp',
+    weight: 200,
+    style: italic
+  ),
+  'AntennaComp-MediumItalic': (
+    family: 'AntennaComp',
+    weight: 500,
+    style: italic
+  ),
+  'AntennaComp-LightItalic': (
+    family: 'AntennaComp',
+    weight: 300,
+    style: italic
+  ),
+  'AntennaComp-BlackItalic': (
+    family: 'AntennaComp',
+    weight: 900,
+    style: italic
+  ),
+  'AntennaComp-Light': (
+    family: 'AntennaComp',
+    weight: 300,
+    style: normal
+  ),
+  'AntennaComp-Regular': (
+    family: 'AntennaComp',
+    weight: normal,
+    style: normal
+  ),
+  'AntennaComp-RegularItalic': (
+    family: 'AntennaComp',
+    weight: normal,
+    style: italic
+  ),
+  'AntennaComp-Thin': (
+    family: 'AntennaComp',
+    weight: 100,
+    style: normal
+  ),
+  'AntennaComp-ThinItalic': (
+    family: 'AntennaComp',
+    weight: 100,
+    style: italic
+  ),
+  
+  // Antenna
+  'Antenna-BoldItalic': (
+    family: 'Antenna',
+    weight: bold,
+    style: italic
+  ),
+  'Antenna-Bold': (
+    family: 'Antenna',
+    weight: bold,
+    style: normal
+  ),
+  'Antenna-Black': (
+    family: 'Antenna',
+    weight: 900,
+    style: normal
+  ),
+  'Antenna-BlackItalic': (
+    family: 'Antenna',
+    weight: 900,
+    style: italic
+  ),
+  'Antenna-Regular': (
+    family: 'Antenna',
+    weight: normal,
+    style: normal
+  ),
+  'Antenna-RegularItalic': (
+    family: 'Antenna',
+    weight: normal,
+    style: italic
+  ),
+  'Antenna-Light': (
+    family: 'Antenna',
+    weight: 300,
+    style: normal
+  ),
+  'Antenna-LightItalic': (
+    family: 'Antenna',
+    weight: 300,
+    style: italic
+  ),
+  'Antenna-Medium': (
+    family: 'Antenna',
+    weight: 500,
+    style: normal
+  ),
+  'Antenna-MediumItalic': (
+    family: 'Antenna',
+    weight: 500,
+    style: italic
+  ),
+  'Antenna-ExtraLight': (
+    family: 'Antenna',
+    weight: 200,
+    style: normal
+  ),
+  'Antenna-ExtraLightItalic': (
+    family: 'Antenna',
+    weight: 200,
+    style: italic
+  ),
+  'Antenna-Thin': (
+    family: 'Antenna',
+    weight: 100,
+    style: normal
+  ),
+  'Antenna-ThinItalic': (
+    family: 'Antenna',
+    weight: 100,
+    style: italic
+  ),
+  
+  // AntennaExtraCond
+  'AntennaExtraCond-RegularItalic': (
+    family: 'AntennaExtraCond RegularItalic',
+    weight: normal,
+    style: italic
+  ),
+  'AntennaExtraCond-Thin': (
+    family: 'AntennaExtraCond',
+    weight: 100,
+    style: normal
+  ),
+  'AntennaExtraCond-ExtraLight': (
+    family: 'AntennaExtraCond',
+    weight: 200,
+    style: normal
+  ),
+  'AntennaExtraCond-Medium': (
+    family: 'AntennaExtraCond',
+    weight: 500,
+    style: normal
+  ),
+  'AntennaExtraCond-ThinItalic': (
+    family: 'AntennaExtraCond',
+    weight: 100,
+    style: italic
+  ),
+  'AntennaExtraCond-Light': (
+    family: 'AntennaExtraCond',
+    weight: 300,
+    style: normal
+  ),
+  'AntennaExtraCond-Regular': (
+    family: 'AntennaExtraCond',
+    weight: normal,
+    style: normal
+  ),
+  'AntennaExtraCond-MediumItalic': (
+    family: 'AntennaExtraCond',
+    weight: 500,
+    style: italic
+  ),
+  'AntennaExtraCond-ExtraLightIta': (
+    family: 'AntennaExtraCond ExtraLightIta',
+    weight: 200,
+    style: italic
+  ),
+  'AntennaExtraCond-LightItalic': (
+    family: 'AntennaExtraCond',
+    weight: 300,
+    style: italic
+  ),
+  'AntennaExtraCond-BoldItalic': (
+    family: 'AntennaExtraCond',
+    weight: bold,
+    style: italic
+  ),
+  'AntennaExtraCond-Bold': (
+    family: 'AntennaExtraCond',
+    weight: bold,
+    style: normal
+  ),
+  'AntennaExtraCond-Black': (
+    family: 'AntennaExtraCond',
+    weight: 900,
+    style: normal
+  ),
+  'AntennaExtraCond-BlackItalic': (
+    family: 'AntennaExtraCond',
+    weight: 900,
+    style: italic
+  )
+);
+
+// Автоматическая генерация всех @font-face определений
+@each $font-name, $font-props in $fonts-map {
+  $font-family: map-get($font-props, family);
+  $font-weight: map-get($font-props, weight);
+  $font-style: map-get($font-props, style);
+  $font-path: '#{$fonts-path}/#{$font-name}';
+  
+  @include font-face($font-family, $font-path, $font-weight, $font-style);
+}
+

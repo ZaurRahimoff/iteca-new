@@ -1,0 +1,49 @@
+//- Form Phone Mixin - компонент для ввода телефона с кодом страны (использует intl-tel-input)
+//- Usage:
+//-   +form-phone('mobile', 'Mobile', true)
+//-   +form-phone('phone', 'Телефон', false, 'form-group--custom', 'feedback-form__phone', 'az', null, 'az,ru,tr', 'us,gb', false, false, true, 'off')
+//-
+//- Parameters:
+//-   name - имя поля (обязательно)
+//-   label - текст метки (опционально)
+//-   required - обязательное поле (default: false)
+//-   groupClass - дополнительный класс для .form-group (опционально)
+//-   wrapperClass - дополнительный класс для обертки (опционально)
+//-   defaultCountry - код страны по умолчанию ISO 3166-1 alpha-2 (default: "az")
+//-   id - id поля (если не указан, используется name)
+//-   preferredCountries - предпочитаемые страны через запятую (default: "az,ru,tr,us,gb")
+//-   excludeCountries - исключенные страны через запятую (default: "")
+//-   separateDialCode - отделять код страны от номера (default: false)
+//-   showSelectedDialCode - показывать код страны рядом с флагом (default: true)
+//-   nationalMode - использовать национальный формат (default: false)
+//-   formatOnDisplay - форматировать номер при вводе (default: true)
+//-   autoPlaceholder - автоматический placeholder ('off', 'polite', 'aggressive') (default: "off")
+
+mixin form-phone(name, label = null, required = false, groupClass = "", wrapperClass = "", defaultCountry = "az", id = null, preferredCountries = "az,ru,tr,us,gb", excludeCountries = "am", separateDialCode = false, showSelectedDialCode = true, nationalMode = false, formatOnDisplay = true, autoPlaceholder = "off")
+  - var inputId = id || name
+  - var groupClasses = groupClass ? `form-group ${groupClass}` : 'form-group'
+  - var wrapperClasses = wrapperClass ? `form-phone-wrapper ${wrapperClass}` : 'form-phone-wrapper'
+  
+  div(class=groupClasses)
+    if label
+      label.form-label(for=inputId)= label
+        if required
+          span.text-danger *
+    div(class=wrapperClasses)
+      // Phone Number Input with intl-tel-input
+      input.form-control.form-phone__input(
+        type="tel"
+        id=inputId
+        name=name
+        placeholder=""
+        required=required
+        data-phone-input="true"
+        data-default-country=defaultCountry
+        data-preferred-countries=preferredCountries
+        data-exclude-countries=excludeCountries
+        data-separate-dial-code=separateDialCode
+        data-show-selected-dial-code=showSelectedDialCode
+        data-national-mode=nationalMode
+        data-format-on-display=formatOnDisplay
+        data-auto-placeholder=autoPlaceholder
+      )

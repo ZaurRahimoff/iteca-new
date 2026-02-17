@@ -1,0 +1,141 @@
+// Utility Mixins - reusable utility mixins
+
+// Flexbox centering
+@mixin flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-vertical() {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horizontal() {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-between() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Absolute positioning with centering
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-center-x() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin absolute-center-y() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Absolute fill - fill parent container
+@mixin absolute-fill() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Transition utilities
+@mixin transition($property: all) {
+  @if $property == all {
+    transition: $transition-base;
+  } @else {
+    transition: $property $transition-base;
+  }
+}
+
+@mixin transition-fast($property: all) {
+  transition: $property $transition-fast ease;
+}
+
+@mixin transition-slow($property: all) {
+  transition: $property $transition-slow ease;
+}
+
+// Transform utilities
+@mixin transform($value) {
+  transform: $value;
+}
+
+@mixin translate($x: 0, $y: 0) {
+  transform: translate($x, $y);
+}
+
+@mixin translateX($x: 0) {
+  transform: translateX($x);
+}
+
+@mixin translateY($y: 0) {
+  transform: translateY($y);
+}
+
+@mixin scale($value: 1) {
+  transform: scale($value);
+}
+
+@mixin rotate($deg: 0) {
+  transform: rotate($deg);
+}
+
+// Text truncate (ellipsis)
+@mixin truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+
+@mixin truncate-lines($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Image cover
+@mixin cover-image() {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+// Visually hide element
+@mixin visually-hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Clearfix
+@mixin clearfix() {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+

@@ -1,0 +1,37 @@
+// Color and Typography mixins
+
+// Mixin for generating CSS variables from SCSS variables
+// Requires $colors-map from variables/colors
+@mixin generate-color-variables() {
+  :root {
+    @each $name, $value in $colors-map {
+      --#{$name}: #{$value};
+    }
+  }
+}
+
+// Mixin for generating CSS variables from SCSS typography variables
+// Requires $typography-map from variables/typography
+@mixin generate-typography-variables() {
+  :root {
+    @each $name, $value in $typography-map {
+      --#{$name}: #{$value};
+    }
+  }
+}
+
+// Mixin for generating CSS variables from SCSS variables (transitions, z-index, etc.)
+@mixin generate-variables() {
+  :root {
+    --transition-base: #{$transition-base};
+    --transition-fast: #{$transition-fast};
+    --transition-slow: #{$transition-slow};
+    --z-index-dropdown: #{$z-index-dropdown};
+    --z-index-sticky: #{$z-index-sticky};
+    --z-index-fixed: #{$z-index-fixed};
+    --z-index-modal-backdrop: #{$z-index-modal-backdrop};
+    --z-index-modal: #{$z-index-modal};
+    --z-index-popover: #{$z-index-popover};
+    --z-index-tooltip: #{$z-index-tooltip};
+  }
+}

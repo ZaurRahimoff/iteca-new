@@ -1,0 +1,13 @@
+//- Миксин карточки партнера/спонсора
+//- @param {object} data - Объект с данными партнера
+//-   - logo: путь к логотипу
+//-   - name: название партнера (опционально)
+//-   - link: ссылка на сайт партнера (опционально)
+
+mixin partner-card(data)
+  .partner-card
+    if data.link
+      a.partner-card__link(href=data.link target="_blank" rel="noopener noreferrer")
+        img.partner-card__logo(src=data.logo alt=data.name || 'Partner logo' loading="lazy")
+    else
+      img.partner-card__logo(src=data.logo alt=data.name || 'Partner logo' loading="lazy")

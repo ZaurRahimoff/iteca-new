@@ -1,0 +1,32 @@
+// Боковая панель социальных сетей
+// БЭМ: .social-sidebar, .social-sidebar__link
+
+.social-sidebar {
+  position: fixed;
+  right: 0;
+  top: 25%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 10px;
+  background-color: var(--primary);
+  z-index: var(--z-index-fixed);
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--white);
+    font-size: 24px;
+    text-decoration: none;
+    transition: var(--transition-base);
+
+    &:hover {
+      opacity: 0.8;
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,0 +1,27 @@
+//- Миксин элемента контактной информации
+//- @param {object} data - Объект с данными контакта
+//-   - icon: класс иконки Font Awesome
+//-   - title: заголовок (Office hours, Email, Phone number, Address)
+//-   - value: значение (текст или массив для нескольких значений)
+//-   - link: ссылка (для email/phone)
+
+mixin contact-item(data)
+  .contact-item
+    .contact-item__icon
+      i(class=data.icon)
+    .contact-item__content
+      h4.contact-item__title= data.title
+      if Array.isArray(data.value)
+        each val in data.value
+          if typeof val === 'object' && val !== null && (val.link && val.text)
+            a.contact-item__value(href=val.link)= val.text
+          else
+            if data.link
+              a.contact-item__value(href=data.link)= val
+            else
+              span.contact-item__value= val
+      else
+        if data.link
+          a.contact-item__value(href=data.link)= data.value
+        else
+          span.contact-item__value= data.value
