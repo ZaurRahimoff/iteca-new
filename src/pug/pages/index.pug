@@ -106,9 +106,9 @@ block content
         .section__header.exhibitions--header
           +title('Exhibition Calendar', 'h2').mx-0
           .exhibition-calendar__controls
-            +button('Download the programme', 'outline', 'download', '#', '', 'fal fa-download')
-            .exhibition-calendar__year-select
-              +year-select({ years: [2025, 2024, 2023], current: 2025, name: 'exhibition-year', id: 'exhibition-year' })
+            +button('Download the programme', 'primary', 'download', '#', '', 'fal fa-download')
+            +year-select({ years: [2025, 2024, 2023], current: 2025, name: 'year-select', id: 'year-select' })
+
         .exhibition-calendar__list
           .row.row-cols-1.row-cols-md-1.row-cols-lg-1.g-4
             +exhibition-card({
@@ -171,19 +171,6 @@ block content
               showButtons: true
             })
 
-  // About Section
-  section.about-section
-    .container
-      .row.align-items-center.g-4.g-md-4.about
-        .col-12.col-lg-6
-            .section__header
-              +title('CASPIAN EVENT ORGANISERS', 'h2')
-            .about__text Caspian Event Organisers (CEO) holds a leading position in organising exhibitions and conferences in Azerbaijan. Since its establishment in 2014, it has become a key player in the congress and exhibition industry, actively developing both national and international brands such as ADEX, Caspian Agro, Rebuild Karabakh, TransLogistica Caspian, Medinex, and others. Today, the company's portfolio includes more than 10 specialised annual events. The President of the Republic of Azerbaijan, Mr. Ilham Aliyev, has consistently shown support for these exhibitions over the years, visiting the events and meeting with participants. The exhibitions are supported by relevant government agencies.
-            a.about__link(href="about-company.html") Read more
-        .col-12.col-lg-6.gx-0.gx-md-4
-          .card.h-100.border-0.about__image
-            img.card-img(src="assets/img/webp/welcome/about1.webp" alt="About CEO" loading="lazy")
-
   // Testimonials Section
   section.testimonials
     .container
@@ -199,7 +186,7 @@ block content
       .testimonials__slider#testimonials.swiper.overflow-hidden(
           data-swiper
           data-swiper-autoplay="true"
-          data-swiper-breakpoints='{"320":{"slidesPerView":1,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":20},"992":{"slidesPerView":3,"spaceBetween":20},"1200":{"slidesPerView":2.5,"spaceBetween": 20,"centeredSlides": true, "roundLengths": true},"1440":{"slidesPerView":3,"spaceBetween": 20,"centeredSlides": true, "roundLengths": true}}'
+          data-swiper-breakpoints='{"320":{"slidesPerView":1,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":20},"992":{"slidesPerView":3,"spaceBetween":20},"1200":{"slidesPerView":2.5,"spaceBetween": 20,"centeredSlides": true, "roundLengths": true},"1440":{"slidesPerView":1.8,"spaceBetween": 20,"centeredSlides": true, "roundLengths": true}}'
           data-swiper-space="20"
           data-swiper-loop="true"
         )

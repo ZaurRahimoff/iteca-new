@@ -10,10 +10,10 @@ mixin testimonial-card(data)
     .testimonial-card__header
       .testimonial-card__avatar
         img(src=data.image alt=data.name loading="lazy")
+    .testimonial-card__content
       .testimonial-card__info
         h4.testimonial-card__name= data.name
         p.testimonial-card__position= data.position
-    .testimonial-card__content
       p.testimonial-card__text= data.text
       a.testimonial-card__link(href="references.html") Read more
         i.far.fa-arrow-right

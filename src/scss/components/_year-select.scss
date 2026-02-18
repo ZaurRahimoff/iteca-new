@@ -9,16 +9,18 @@
 .nice-select.year-select {
   background-color: var(--primary);
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   color: var(--white);
   font-family: var(--font-family);
   font-size: var(--font-size-body);
-  font-weight: var(--font-weight-semibold);
-  height: 40px;
-  line-height: 38px;
-  padding-left: 20px;
-  padding-right: 40px;
-  min-width: 90px;
+  font-weight: var(--font-weight-normal);
+  height: 30px;
+  line-height: normal;
+  padding-left: 10px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  min-width: 80px;
   transition: var(--transition-base);
   background-image: none;
 
@@ -27,7 +29,7 @@
   &.open {
     background-color: var(--primary);
     color: var(--white);
-    box-shadow: 0 4px 12px rgba(228, 10, 102, 0.3);
+    box-shadow: 0 4px 12px rgba(138, 138, 138, 0.3);
   }
 
   &::after {
@@ -56,7 +58,7 @@
     &:hover,
     &.focus,
     &.selected.focus {
-      background-color: rgba(228, 10, 102, 0.08);
+      background-color: rgba(182, 182, 182, 0.08);
       color: var(--primary);
     }
 

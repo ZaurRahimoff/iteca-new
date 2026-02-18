@@ -2,6 +2,7 @@ extends ../layouts/default
 
 include ../mixins/_title
 include ../mixins/_button
+include ../mixins/_form-select
 
 block variables
   - var pageTitle = 'Services Request Form - CEO'
@@ -101,19 +102,7 @@ block content
 
           // Country
           .col-12.col-md-6
-            .form-group
-              label.form-label(for="country")
-                | Country 
-                span.form-label__required *
-              select.form-select.wide#country(name="country" required)
-                option(value="" selected) ---
-                option(value="az") Azerbaijan
-                option(value="us") United States
-                option(value="uk") United Kingdom
-                option(value="de") Germany
-                option(value="fr") France
-                option(value="ru") Russia
-                option(value="tr") Turkey
+            +form-select('country', 'Country', [{ value: '', text: '---' },{ value: 'az', text: 'Azerbaijan' }, { value: 'us', text: 'United States' }, { value: 'uk', text: 'United Kingdom' }, { value: 'de', text: 'Germany' }, { value: 'fr', text: 'France' }, { value: 'ru', text: 'Russia' }, { value: 'tr', text: 'Turkey' }], true)
 
           // Phone
           .col-12.col-md-6

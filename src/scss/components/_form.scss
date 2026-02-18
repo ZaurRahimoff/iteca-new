@@ -134,8 +134,8 @@
 }
 
 // Nice Select Overrides (для кастомных селектов)
-.form .nice-select,
-.nice-select.form-select {
+.form > .nice-select,
+.form > .nice-select.form-select { 
   width: 100%;
   height: 50px;
   padding: 0 20px;

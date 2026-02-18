@@ -31,6 +31,11 @@
 //   }
 // }
 
+body {
+  background-color: var(--background);
+  font-family: var(--font-family);
+}
+
 // Statistics Section
 .statistics-section {
   position: relative;
@@ -95,6 +100,7 @@
       font-weight: var(--font-weight-regular);
       border-radius: 8px;
       transition: var(--transition-base);
+      height: 30px;
 
       @media (max-width: 992px) {
         width: 100%;

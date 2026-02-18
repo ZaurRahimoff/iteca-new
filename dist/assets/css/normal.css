@@ -29,6 +29,15 @@
   --font-size-h3: 1.75rem;
   --font-size-h2: 1.875rem;
   --font-size-h1: 2.5rem;
+  --font-size-body-mobile: 0.75rem;
+  --font-size-title1-mobile: 0.875rem;
+  --font-size-title-mobile: 1rem;
+  --font-size-h6-mobile: 1.125rem;
+  --font-size-h5-mobile: 1.25rem;
+  --font-size-h4-mobile: 1.375rem;
+  --font-size-h3-mobile: 1.5rem;
+  --font-size-h2-mobile: 1.75rem;
+  --font-size-h1-mobile: 1.875rem;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
@@ -1993,8 +2002,8 @@ select {
   font-family: var(--font-family);
   font-size: var(--font-size-title);
   font-weight: var(--font-weight-medium);
-  color: var(--text-2);
-  line-height: 1.2;
+  color: var(--text);
+  line-height: normal;
   margin: 0;
 }
 @media (max-width: 767px) {
@@ -2051,7 +2060,7 @@ select {
 }
 .ex-card .ex-actions .btn {
   white-space: nowrap;
-  padding: 5px 10px;
+  padding: 5px 8px;
   height: 30px;
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-medium);
@@ -2067,7 +2076,7 @@ select {
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: 0 auto;
-    font-size: var(--font-size-body-mobile);
+    font-size: var(--font-size-body);
   }
 }
 .ex-card .ex-actions .btn i {
@@ -2315,7 +2324,6 @@ select {
   align-items: center;
   gap: 25px;
   width: 100%;
-  max-width: 1000px;
   flex-shrink: 0;
 }
 @media (max-width: 575px) {
@@ -2421,23 +2429,25 @@ select {
 .nice-select.year-select {
   background-color: var(--primary);
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   color: var(--white);
   font-family: var(--font-family);
   font-size: var(--font-size-body);
-  font-weight: var(--font-weight-semibold);
-  height: 40px;
-  line-height: 38px;
-  padding-left: 20px;
-  padding-right: 40px;
-  min-width: 90px;
+  font-weight: var(--font-weight-normal);
+  height: 30px;
+  line-height: normal;
+  padding-left: 10px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  min-width: 80px;
   transition: var(--transition-base);
   background-image: none;
 }
 .nice-select.year-select:hover, .nice-select.year-select:focus, .nice-select.year-select.open {
   background-color: var(--primary);
   color: var(--white);
-  box-shadow: 0 4px 12px rgba(228, 10, 102, 0.3);
+  box-shadow: 0 4px 12px rgba(138, 138, 138, 0.3);
 }
 .nice-select.year-select::after {
   border-bottom-color: var(--white);
@@ -2460,7 +2470,7 @@ select {
   padding-right: 20px;
 }
 .nice-select.year-select .option:hover, .nice-select.year-select .option.focus, .nice-select.year-select .option.selected.focus {
-  background-color: rgba(228, 10, 102, 0.08);
+  background-color: rgba(182, 182, 182, 0.08);
   color: var(--primary);
 }
 .nice-select.year-select .option.selected {
@@ -2604,8 +2614,8 @@ select {
   margin-top: 30px;
 }
 
-.form .nice-select,
-.nice-select.form-select {
+.form > .nice-select,
+.form > .nice-select.form-select {
   width: 100%;
   height: 50px;
   padding: 0 20px;
@@ -2621,26 +2631,26 @@ select {
   transition: var(--transition-base);
 }
 @media (max-width: 768px) {
-  .form .nice-select,
-  .nice-select.form-select {
+  .form > .nice-select,
+  .form > .nice-select.form-select {
     font-size: var(--font-size-title-mobile);
     padding: 0 16px;
     border-radius: 8px;
   }
 }
-.form .nice-select:hover,
-.nice-select.form-select:hover {
+.form > .nice-select:hover,
+.form > .nice-select.form-select:hover {
   border-color: var(--gray);
 }
-.form .nice-select:active, .form .nice-select.open, .form .nice-select:focus,
-.nice-select.form-select:active,
-.nice-select.form-select.open,
-.nice-select.form-select:focus {
+.form > .nice-select:active, .form > .nice-select.open, .form > .nice-select:focus,
+.form > .nice-select.form-select:active,
+.form > .nice-select.form-select.open,
+.form > .nice-select.form-select:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(228, 10, 102, 0.1);
 }
-.form .nice-select::after,
-.nice-select.form-select::after {
+.form > .nice-select::after,
+.form > .nice-select.form-select::after {
   border-bottom-color: var(--primary);
   border-right-color: var(--primary);
   height: 6px;
@@ -2648,17 +2658,17 @@ select {
   right: 20px;
 }
 @media (max-width: 768px) {
-  .form .nice-select::after,
-  .nice-select.form-select::after {
+  .form > .nice-select::after,
+  .form > .nice-select.form-select::after {
     right: 16px;
   }
 }
-.form .nice-select.open::after,
-.nice-select.form-select.open::after {
+.form > .nice-select.open::after,
+.form > .nice-select.form-select.open::after {
   transform: rotate(-135deg);
 }
-.form .nice-select .list,
-.nice-select.form-select .list {
+.form > .nice-select .list,
+.form > .nice-select.form-select .list {
   background-color: var(--white);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -2669,8 +2679,8 @@ select {
   min-width: 100%;
   padding: 0;
 }
-.form .nice-select .option,
-.nice-select.form-select .option {
+.form > .nice-select .option,
+.form > .nice-select.form-select .option {
   font-family: var(--font-family);
   font-size: var(--font-size-title);
   font-weight: var(--font-weight-regular);
@@ -2682,32 +2692,32 @@ select {
   transition: var(--transition-fast);
 }
 @media (max-width: 768px) {
-  .form .nice-select .option,
-  .nice-select.form-select .option {
+  .form > .nice-select .option,
+  .form > .nice-select.form-select .option {
     font-size: var(--font-size-title-mobile);
     padding-left: 16px;
     padding-right: 16px;
   }
 }
-.form .nice-select .option:hover, .form .nice-select .option.focus,
-.nice-select.form-select .option:hover,
-.nice-select.form-select .option.focus {
+.form > .nice-select .option:hover, .form > .nice-select .option.focus,
+.form > .nice-select.form-select .option:hover,
+.form > .nice-select.form-select .option.focus {
   background-color: var(--card);
 }
-.form .nice-select .option.selected,
-.nice-select.form-select .option.selected {
+.form > .nice-select .option.selected,
+.form > .nice-select.form-select .option.selected {
   font-weight: var(--font-weight-semibold);
   background-color: var(--card);
   color: var(--primary);
 }
-.form .nice-select .option.disabled,
-.nice-select.form-select .option.disabled {
+.form > .nice-select .option.disabled,
+.form > .nice-select.form-select .option.disabled {
   background-color: transparent;
   color: var(--gray);
   cursor: default;
 }
-.form .nice-select .current,
-.nice-select.form-select .current {
+.form > .nice-select .current,
+.form > .nice-select.form-select .current {
   font-weight: var(--font-weight-medium);
   color: var(--text);
 }
@@ -3106,6 +3116,11 @@ select {
   margin-top: 5px;
 }
 
+body {
+  background-color: var(--background);
+  font-family: var(--font-family);
+}
+
 .statistics-section {
   position: relative;
   margin-top: -80px;
@@ -3153,6 +3168,7 @@ select {
   font-weight: var(--font-weight-regular);
   border-radius: 8px;
   transition: var(--transition-base);
+  height: 30px;
 }
 @media (max-width: 992px) {
   .exhibition-calendar-section .exhibition-calendar .btn--download {

@@ -27,7 +27,7 @@ mixin exhibition-card(data)
                     i.fal.fa-globe
                     a(href=data.website target="_blank" rel="noopener noreferrer")= data.website
                 if showButtons
-                  .ex-actions.d-flex.flex-row.flex-md-row.mt-2.mt-md-0
+                  .ex-actions.d-flex.flex-row.flex-md-row.mt-3.mt-md-0
                     if data.showStandButton !== false
                       +button('Stand reservation', 'outline', 'button', '#', '', 'fas fa-billboard')
                     if data.showTicketButton !== false
