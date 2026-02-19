@@ -42,6 +42,9 @@ body {
   margin-top: -80px;
   z-index: var(--z-index-sticky);
   padding: 25px 50px;
+  width: calc(100% - 170px);
+  margin-left: auto;
+  margin-right: auto;
 
   .statistics {
     background-color: transparent;
@@ -266,14 +269,54 @@ body {
     }
 
     &__link {
+      font-family: var(--font-family);
+      font-size: var(--font-size-title1);
+      font-weight: var(--font-weight-regular);
+      color: var(--primary);
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
 
-    // Mobile Slider - показывать только на мобильных
-    &__slider {
+    // Desktop Grid - используем Bootstrap 5
+    &__grid {
+      @media (min-width: 992px) {
+        // Левая большая карточка
+        .col-lg-5 {
+          .news-card {
+            height: 625px;
+          }
+        }
 
-      @include lg-down {
-        display: block;
-        overflow: visible;
+        // Правая колонка
+        .col-lg-7 {
+          .row {
+            height: 100%;
+
+            // Верхняя карточка
+            > .col-12:first-child {
+              .news-card {
+                height: 302px;
+              }
+            }
+
+            // Нижний ряд с 2 карточками
+            > .col-12:last-child {
+              .news-card {
+                height: 303px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Mobile Slider
+    &__slider {
+      @media (max-width: 991px) {
+        // overflow: visible;
         padding-bottom: 20px;
       }
 
@@ -284,6 +327,10 @@ body {
       .swiper-slide {
         height: auto;
         display: flex;
+
+        .news-card {
+          height: 350px;
+        }
       }
     }
   }
@@ -574,17 +621,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--card);
+    background-color: var(--white);
     // border: 1px solid var(--border);
     border-radius: 50%;
-    color: var(--primary);
+    color: var(--secondary);
     cursor: pointer;
     opacity: 1;
     transition: var(--transition-base);
 
     &:hover {
       opacity: 0.8;
-      background-color: var(--primary);
+      background-color: var(--secondary);
       color: var(--white);
     }
 
@@ -606,7 +653,7 @@ body {
       width: 17px;
       height: 5px;
       border-radius: 5px;
-      background: var(--primary);
+      background: var(--secondary);
       transition: var(--transition-base);
     }
   }

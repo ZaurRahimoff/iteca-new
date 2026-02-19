@@ -249,56 +249,85 @@ block content
                 i.fal.fa-arrow-left
               button.swiper-next.news__nav-next#news__nav-next(type="button" aria-label="Next")
                 i.fal.fa-arrow-right
-        .news__slider#news.swiper.container.overflow-hidden(
+        // Desktop: Bootstrap Grid
+        .news__grid.d-none.d-lg-block
+          .row.g-3
+            .col-lg-5
+              +news-card({
+                image: 'assets/img/webp/news1.webp',
+                title: 'Global business guru to visit Baku for the 30th Anniversary Baku Energy Week',
+                date: '22 April 2025',
+                link: 'news-details.html',
+                variant: 'large'
+              })
+            .col-lg-7
+              .row.g-3.h-100
+                .col-12
+                  +news-card({
+                    image: 'assets/img/webp/news2.webp',
+                    title: 'China-Azerbaijan: A New Impulse',
+                    date: '22 April 2025',
+                    link: 'news-details.html',
+                    variant: 'large'
+                  })
+                .col-12
+                  .row.g-3
+                    .col-6
+                      +news-card({
+                        image: 'assets/img/webp/news3.webp',
+                        title: 'The press conference of 30th Anniversary Baku Energy Week was held',
+                        date: '22 April 2025',
+                        link: 'news-details.html',
+                        variant: 'medium'
+                      })
+                    .col-6
+                      +news-card({
+                        image: 'assets/img/webp/news4.webp',
+                        title: 'A meeting with participants was held ahead of the 30th Anniversary Baku Energy Week and the 22nd "TransLogistica Caspian" exhibition',
+                        date: '22 April 2025',
+                        link: 'news-details.html',
+                        variant: 'medium'
+                      })
+
+        // Mobile: Swiper Slider
+        .news__slider#news.swiper.d-lg-none(
           data-swiper
-          data-grid-lg="true"
-          data-grid-md="true"
-          data-grid-sm="false"
-          data-grid="false"
           data-swiper-breakpoints='{"320":{"slidesPerView":1,"spaceBetween":20},"768":{"slidesPerView":2,"spaceBetween":20}}'
           data-swiper-space="20"
           data-swiper-loop="true"
         )
-          .swiper-wrapper.news__grid.row.g-4
-            .col-12.col-md-6.col-lg-6.swiper-slide
+          .swiper-wrapper
+            .swiper-slide
               +news-card({
                 image: 'assets/img/webp/news1.webp',
-                title: 'An Important Water Management Event Approaches – Baku to Host Water Week in September',
-                date: '27 August, 2024',
+                title: 'Global business guru to visit Baku for the 30th Anniversary Baku Energy Week',
+                date: '22 April 2025',
                 link: 'news-details.html',
                 variant: 'large'
               })
-            .col-12.col-md-6.col-lg-6.swiper-slide
+            .swiper-slide
               +news-card({
                 image: 'assets/img/webp/news2.webp',
-                title: 'Write Bet The press conference of 30th Anniversary Baku Energy Week was heldter CSS By Borrowing Ideas From JavaScript Functions',
-                date: '27 August, 2024',
+                title: 'China-Azerbaijan: A New Impulse',
+                date: '22 April 2025',
+                link: 'news-details.html',
+                variant: 'large'
+              })
+            .swiper-slide
+              +news-card({
+                image: 'assets/img/webp/news3.webp',
+                title: 'The press conference of 30th Anniversary Baku Energy Week was held',
+                date: '22 April 2025',
                 link: 'news-details.html',
                 variant: 'medium'
               })
-            .col-12.col-md-6.col-lg-4.swiper-slide
-              +news-card({
-                image: 'assets/img/webp/news3.webp',
-                title: 'China-Azerbaijan: A New Impulse',
-                date: '27 August, 2024',
-                link: 'news-details.html',
-                variant: 'small'
-              })
-            .col-12.col-md-6.col-lg-4.swiper-slide
+            .swiper-slide
               +news-card({
                 image: 'assets/img/webp/news4.webp',
-                title: 'Innovations and Trends: Azerbaijan`s International Exhibitions',
-                date: '27 August, 2024',
+                title: 'A meeting with participants was held ahead of the 30th Anniversary Baku Energy Week and the 22nd "TransLogistica Caspian" exhibition',
+                date: '22 April 2025',
                 link: 'news-details.html',
-                variant: 'small'
-              })
-            .col-12.col-md-6.col-lg-4.swiper-slide
-              +news-card({
-                image: 'assets/img/webp/news5.webp',
-                title: 'Baku Water Week to Be Held in September',
-                date: '27 August, 2024',
-                link: 'news-details.html',
-                variant: 'small'
+                variant: 'medium'
               })
 
   // Photo Section

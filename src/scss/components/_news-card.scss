@@ -9,6 +9,8 @@
     border-radius: 8px;
     overflow: hidden;
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   &__link {
@@ -24,6 +26,9 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   &__overlay {
@@ -32,6 +37,7 @@
       bottom: 0;
       left: 0;
       right: 0;
+      top: auto;
       background: rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: column;
@@ -53,7 +59,7 @@
     font-size: var(--font-size-body);
     font-weight: var(--font-weight-medium);
     color: var(--white);
-    margin: 0 0 0 0;
+    margin: 0;
     line-height: normal;
   }
 
@@ -68,130 +74,16 @@
     }
   }
 
-  // Стили для слайдера (мобильная версия - все карточки большие)
+  // Стили для слайдера (мобильная версия)
   .news__slider & {
-    height: 400px;
+    height: 350px;
 
     .news-card__title {
-      font-size: var(--font-size-h3);
+      font-size: var(--font-size-title1);
       color: var(--white);
     }
 
     .news-card__date {
-      color: var(--white);
-    }
-  }
-}
-
-// Разделение вариантов через nth-child для десктопной версии
-// Большие карточки (1-2) в grid
-.news__grid > :nth-child(1) .news-card,
-.news__grid > :nth-child(2) .news-card {
-  height: 400px;
-
-  @include lg-down {
-    height: 350px;
-  }
-
-  .news-card__title {
-    font-size: var(--font-size-h3);
-    color: var(--white);
-  }
-
-  .news-card__date {
-    color: var(--white);
-  }
-}
-
-// Маленькие карточки (3-5) в grid
-.news__grid > :nth-child(3) .news-card,
-.news__grid > :nth-child(4) .news-card,
-.news__grid > :nth-child(5) .news-card {
-  height: 140px;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: 0;
-  padding: 0;
-  background-color: var(--white);
-  overflow: hidden;
-
-  @include lg-down {
-    height: 350px;
-    flex-direction: column;
-  }
-
-  .card-img {
-    flex: 0 0 180px;
-    width: 180px;
-    height: 140px;
-    object-fit: cover;
-    position: static;
-    border-radius: 8px 0 0 8px;
-    display: block;
-    flex-shrink: 0;
-
-    @include lg-down {
-      flex: 0 0 auto;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: static;
-      border-radius: 8px;
-      display: block;
-      flex-shrink: 0;
-    }
-  }
-
-  .news-card__overlay {
-    position: static;
-    background: none !important;
-    padding: 5px 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-width: 0;
-
-    @include lg-down {
-      position: absolute;
-      inset: 0;
-      flex: auto;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)) !important;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 20px;
-      z-index: 1;
-    }
-  }
-
-  .news-card__content {
-    gap: 10px;
-    height: 100%;
-
-    @include lg-down {
-      height: auto;
-    }
-  }
-
-  .news-card__title {
-    font-size: var(--font-size-title);
-    color: var(--text-2);
-    line-height: 1.4;
-    margin-bottom: auto;
-
-    @include lg-down {
-      font-size: var(--font-size-h3);
-      color: var(--white);
-      margin-bottom: 0;
-    }
-  }
-
-  .news-card__date {
-    color: var(--gray);
-
-    @include lg-down {
       color: var(--white);
     }
   }
