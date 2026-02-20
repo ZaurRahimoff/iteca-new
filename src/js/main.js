@@ -6,6 +6,7 @@ import initNewsDetailsSlider from './modules/news-details-slider.js';
 import initNiceSelect from './modules/nice-select.js';
 import { initFancybox } from './modules/fancybox.js';
 import initReferencesLoadMore from './modules/references-load-more.js';
+import { initVideoPlay } from './modules/video-play';
 import initHeroSlider from './modules/hero-slider.js';
 import './modules/swiper-auto.js'; // Автоматическая инициализация Swiper через data-атрибуты
 
@@ -20,7 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initSliders();
     initNewsDetailsSlider();
   }
-  
+
+  // Инициализация видео
+  initVideoPlay();
   // Автоматическая инициализация Swiper слайдеров через data-атрибуты
   // Выполняется автоматически в swiper-auto.js при загрузке DOM
   

@@ -1,0 +1,36 @@
+//- YouTube Video Mixin
+//- @param {string} videoId - YouTube video ID
+//- @param {string} poster - Path to poster image (optional)
+//- @param {object} options - Options object (optional)
+//-   - useLite {boolean} - Use lite-youtube component (default: true)
+//-   - params {string} - YouTube params for lite-youtube (default: 'controls=1&modestbranding=1&rel=0')
+//-   - buttonStyle {string} - Play button style: 'transparent' | 'primary' (default: 'transparent')
+//-   - classes {string} - Additional CSS classes (optional)
+
+mixin yt-video(videoId, poster = null, options = {})
+  - const useLite = options.useLite !== false // По умолчанию true
+  - const params = options.params || 'controls=1&modestbranding=1&rel=0'
+  - const buttonStyle = options.buttonStyle || 'transparent'
+  - const additionalClasses = options.classes || ''
+  
+  //- lite-youtube вариант (по умолчанию для всех)
+  - const styleClass = buttonStyle === 'primary' ? 'yt-video--primary-btn' : 'yt-video--transparent-btn'
+  - const liteClasses = ['yt-video--lite', styleClass, additionalClasses].filter(Boolean).join(' ')
+  
+  div(class=liteClasses)&attributes(attributes)
+    lite-youtube(videoid=videoId params=params)
+
+//- Примеры использования:
+//- 
+//- Прозрачная кнопка (главная страница):
+//- +yt-video('wfsTGsXGKvE')
+//- +yt-video('wfsTGsXGKvE', null, { buttonStyle: 'transparent' })
+//- 
+//- Синяя кнопка (about-company):
+//- +yt-video('wfsTGsXGKvE', null, { buttonStyle: 'primary' })
+//- 
+//- С кастомными параметрами YouTube:
+//- +yt-video('wfsTGsXGKvE', null, { params: 'controls=0&rel=0' })
+//- 
+//- С дополнительными классами:
+//- +yt-video('wfsTGsXGKvE', null, { classes: 'my-custom-class' })

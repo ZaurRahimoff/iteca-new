@@ -344,7 +344,7 @@ block content
                 i.fal.fa-arrow-left
               button.swiper-next#photo__nav-next(type="button" aria-label="Next")
                 i.fal.fa-arrow-right         
-        .photo__slider#photo.swiper.container.overflow-hidden(
+        .photo__slider#photo.swiper.container.px-0.overflow-hidden(
           data-swiper
           data-grid-lg="true"
           data-grid-md="true"
@@ -386,13 +386,19 @@ block content
                   .card-img-overlay.d-flex.align-items-end.p-3
                     h6.card-title.text-white.mb-0.photo__title CRITICAL INFRASTRUCTURE DEFENCE CHALLENGE 2025
 
+  // Video Section
+  include ../mixins/_yt-video
+  section.video-section
+    .container
+      +yt-video('wfsTGsXGKvE', null, { buttonStyle: 'primary' })
+
   // Proud Members Section
   section.members-section
     .container
       .members
         .section__header
           +title('Proud members of', 'h2').mx-0
-        .members__slider#members.swiper.container.overflow-hidden(
+        .members__slider#members.swiper.container.px-0.overflow-hidden(
           data-swiper
           data-grid-lg="true"
           data-grid-md="true"
@@ -438,6 +444,8 @@ block content
                 i.fal.fa-arrow-left
               button.swiper-next#partners__nav-next(type="button" aria-label="Next")
                 i.fal.fa-arrow-right         
+    .bg__white    
+      .container
         .partners__slider#partners.swiper.overflow-hidden(
           data-swiper
           data-autoplay="true"
@@ -460,7 +468,7 @@ block content
               +partner-card({logo: 'assets/img/webp/partner1.webp', name: 'Partner 6'})
 
   // Contact Section
-  section.contact-section
+  section.contact-section.mb-5
     .container
       .contact
         .row

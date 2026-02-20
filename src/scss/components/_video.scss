@@ -1,0 +1,204 @@
+@import "../variables/colors";
+@import "../variables/typography";
+@import "../variables/variables";
+@import "../mixins/media";
+
+// ============================================
+// YouTube Video Component (DEPRECATED)
+// Используйте .yt-video--lite вместо этого
+// ============================================
+.yt-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+
+  // Старые стили для обратной совместимости
+  &__poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transition: opacity var(--transition-base);
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity var(--transition-base);
+
+    &--visible {
+      opacity: 1;
+    }
+  }
+
+  &__play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    i {
+      color: var(--white);
+      font-size: 80px;
+      filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.3));
+      transition: var(--transition-base);
+
+      @include lg-down {
+        font-size: 56px;
+      }
+    }
+
+    &:hover i {
+      filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.5));
+    }
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+// ============================================
+// lite-youtube компонент (универсальный)
+// ============================================
+.yt-video--lite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  
+  lite-youtube {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #000;
+    position: relative;
+
+    // Скрываем стандартный градиент lite-youtube
+    &::before {
+      display: none !important;
+    }
+
+    // Базовая кнопка Play
+    > .lty-playbtn {
+      cursor: pointer;
+      filter: none;
+      transform: translate(-50%, -50%) !important;
+      transition: var(--transition-base);
+      border: none !important;
+      
+      &::before {
+        font-family: 'Font Awesome 7 Pro';
+        font-weight: 400;
+        border: none !important;
+        width: auto !important;
+        height: auto !important;
+        position: relative;
+      }
+    }
+  }
+}
+
+// ============================================
+// Прозрачная кнопка (главная страница)
+// ============================================
+.yt-video--transparent-btn {
+  lite-youtube {
+    > .lty-playbtn {
+      width: auto !important;
+      height: auto !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+
+      &::before {
+        content: '\f144'; // fa-circle-play
+        font-size: 80px;
+        color: #FFFFFF !important;
+        left: 0;
+        filter: drop-shadow(0px 0px 20px rgba(0, 0, 0, 0.3));
+
+        @include lg-down {
+          font-size: 56px;
+        }
+      }
+    }
+
+    &:hover > .lty-playbtn {
+      background: transparent !important;
+      transform: translate(-50%, -50%) scale(1.1) !important;
+      box-shadow: none !important;
+
+      &::before {
+        filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.5));
+      }
+    }
+  }
+}
+
+// ============================================
+// Синяя кнопка (about-company)
+// ============================================
+.yt-video--primary-btn {
+  lite-youtube {
+    > .lty-playbtn {
+      width: 100px !important;
+      height: 100px !important;
+      background: var(--primary) !important;
+      border-radius: 50% !important;
+      box-shadow: 0px 0px 20px 0px rgba(43, 59, 115, 0.3) !important;
+
+      @include lg-down {
+        width: 60px !important;
+        height: 60px !important;
+      }
+
+      &::before {
+        content: '\f04b'; // fa-play треугольник
+        font-size: 40px;
+        color: #FFFFFF !important;
+        left: 3px;
+
+        @include lg-down {
+          font-size: 20px;
+          left: 2px;
+        }
+      }
+    }
+
+    &:hover > .lty-playbtn {
+      background: #3d4f8a !important;
+      transform: translate(-50%, -50%) scale(1.05) !important;
+      box-shadow: 0px 0px 30px 0px rgba(43, 59, 115, 0.5) !important;
+    }
+  }
+}

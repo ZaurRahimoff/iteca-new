@@ -54,6 +54,7 @@ body {
   @media (max-width: 768px) {
     padding: 0 4px;
     margin-top: -50px;
+    width: 100%;
 
     .statistics {
       background-color: var(--primary);
@@ -421,7 +422,7 @@ body {
 
     &__card {
       height: 200px;
-      background-color: var(--card);
+      background-color: var(--white);
       border-radius: 8px;
       padding: 43px 86px;
       display: flex;
@@ -455,15 +456,16 @@ body {
       font-family: var(--font-family);
       font-size: var(--font-size-body);
       font-weight: var(--font-weight-medium);
-      color: var(--primary);
+      color: var(--secondary);
 
       i {
         width: 19px;
         height: 19px;
+        font-size: 19px;
       }
 
       a {
-        color: var(--primary);
+        color: var(--secondary);
         text-decoration: none;
 
         &:hover {
@@ -477,7 +479,11 @@ body {
 // Partners Section
 .partners-section {
   padding: 25px 0;
-  background-color: var(--white);
+  // background-color: var(--white);
+
+  .bg__white {
+    background-color: var(--white);
+  }
 
   .partners {
     &__header {
@@ -516,8 +522,8 @@ body {
     }
 
     &__slider {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      // border-top: 1px solid var(--line);
+      // border-bottom: 1px solid var(--line);
 
       .swiper-wrapper {
         align-items: center;
